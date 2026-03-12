@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德湃 · 赋能全球智能投教</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #2563EB;
+    --primary-light: #3B82F6;
+    --primary-dark: #1D4ED8;
+    --accent: #F59E0B;
+    --accent-light: #FCD34D;
+    --bg: #FAFBFF;
+    --card: #FFFFFF;
+    --text: #1E293B;
+    --text-light: #64748B;
+    --text-lighter: #94A3B8;
+    --border: #E2E8F0;
+    --success: #10B981;
+    --gradient-1: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    --gradient-2: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    --gradient-3: linear-gradient(135deg, #10B981 0%, #2563EB 100%);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav .logo {
+    font-weight: 700; font-size: 20px;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  nav .links { display: flex; gap: 32px; }
+  nav .links a {
+    text-decoration: none; color: var(--text-light); font-size: 14px; font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--primary); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    background: linear-gradient(180deg, #EEF2FF 0%, var(--bg) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 64px); font-weight: 800;
+    line-height: 1.2; margin-bottom: 20px;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero .sub {
+    font-size: clamp(16px, 2vw, 22px); color: var(--text-light);
+    max-width: 680px; margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero .badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 18px; border-radius: 40px; font-size: 14px; font-weight: 500;
+    background: white; border: 1px solid var(--border); color: var(--text);
+    box-shadow: var(--shadow-sm);
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .badge .dot.blue { background: var(--primary); }
+  .badge .dot.amber { background: var(--accent); }
+  .badge .dot.green { background: var(--success); }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 40px; font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+  }
+  .section-label.blue { background: #EEF2FF; color: var(--primary); }
+  .section-label.amber { background: #FEF3C7; color: #B45309; }
+  .section-label.green { background: #D1FAE5; color: #065F46; }
+
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
+    margin-bottom: 12px; line-height: 1.3;
+  }
+  .section-desc {
+    font-size: 17px; color: var(--text-light); max-width: 700px; margin-bottom: 48px;
+  }
+
+  /* ─── CARDS ─── */
+  .cards { display: grid; gap: 24px; }
+  .cards.cols-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  .cards.cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+  .card .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .card .icon.blue { background: #EEF2FF; }
+  .card .icon.amber { background: #FEF3C7; }
+  .card .icon.green { background: #D1FAE5; }
+  .card .icon.purple { background: #F3E8FF; }
+
+  .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
+
+  .card .link {
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-top: 16px; font-size: 14px; font-weight: 500;
+    color: var(--primary); text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .card .link:hover { gap: 8px; }
+  .card .link::after { content: '→'; }
+
+  /* ─── FLOW DIAGRAM ─── */
+  .flow {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 16px;
+    margin: 48px 0;
+  }
+  .flow-node {
+    background: white; border: 2px solid var(--primary);
+    border-radius: 12px; padding: 16px 24px;
+    text-align: center; font-weight: 500; font-size: 15px;
+    min-width: 160px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .flow-node:hover { transform: scale(1.05); box-shadow: var(--shadow-md); }
+  .flow-node.highlight {
+    background: var(--primary); color: white; border-color: var(--primary);
+  }
+  .flow-node.accent {
+    background: var(--accent); color: white; border-color: var(--accent);
+  }
+  .flow-node small { display: block; font-weight: 400; font-size: 12px; opacity: 0.8; margin-top: 4px; }
+  .flow-arrow {
+    font-size: 24px; color: var(--primary); font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  /* ─── VERTICAL FLOW ─── */
+  .vflow {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+    margin: 48px 0;
+  }
+  .vflow-node {
+    background: white; border: 2px solid var(--border);
+    border-radius: 14px; padding: 20px 32px;
+    text-align: center; font-weight: 500; font-size: 15px;
+    width: 100%; max-width: 500px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .vflow-node.active { border-color: var(--primary); background: #EEF2FF; }
+  .vflow-arrow {
+    width: 2px; height: 32px; background: var(--border);
+    position: relative;
+  }
+  .vflow-arrow::after {
+    content: '▼'; position: absolute; bottom: -8px; left: 50%;
+    transform: translateX(-50%); color: var(--text-lighter); font-size: 10px;
+  }
+
+  /* ─── STAT STRIP ─── */
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px; margin: 48px 0;
+  }
+  .stat {
+    text-align: center; padding: 32px 16px;
+    background: white; border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .stat .num {
+    font-size: 36px; font-weight: 800;
+    background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat .label { font-size: 14px; color: var(--text-light); margin-top: 4px; }
+
+  /* ─── PAIN POINTS ─── */
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 48px 0; }
+  .pain-col h3 {
+    font-size: 16px; font-weight: 600; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pain-item {
+    padding: 12px 16px; border-radius: 10px; margin-bottom: 10px;
+    font-size: 14px; line-height: 1.6;
+  }
+  .pain-item.red { background: #FEF2F2; color: #991B1B; border-left: 3px solid #EF4444; }
+  .pain-item.green { background: #F0FDF4; color: #166534; border-left: 3px solid #22C55E; }
+
+  /* ─── COOPERATION ─── */
+  .coop-grid {
+    display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: start;
+    margin: 48px 0;
+  }
+  .coop-side { display: flex; flex-direction: column; gap: 16px; }
+  .coop-center {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 8px; padding-top: 40px;
+  }
+  .coop-center .arrow-lr { font-size: 28px; color: var(--primary); }
+  .coop-item {
+    background: white; border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .coop-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .coop-item p { font-size: 13px; color: var(--text-light); }
+  .coop-item .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; margin-top: 8px;
+  }
+  .coop-item .tag.blue { background: #EEF2FF; color: var(--primary); }
+  .coop-item .tag.green { background: #D1FAE5; color: #065F46; }
+
+  /* ─── RESULTS BANNER ─── */
+  .results-banner {
+    background: var(--gradient-1);
+    border-radius: var(--radius); padding: 48px;
+    color: white; text-align: center;
+    margin: 48px 0;
+    position: relative; overflow: hidden;
+  }
+  .results-banner::before {
+    content: '';
+    position: absolute; top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.1); border-radius: 50%;
+  }
+  .results-banner h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+  .results-banner p { font-size: 16px; opacity: 0.9; max-width: 600px; margin: 0 auto 24px; }
+  .results-banner .highlight-text {
+    display: inline-block;
+    background: rgba(255,255,255,0.2); border-radius: 8px;
+    padding: 12px 24px; font-size: 15px; font-weight: 500;
+  }
+
+  /* ─── LINK CHIPS ─── */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 20px; font-size: 13px;
+    background: #F1F5F9; color: var(--text); text-decoration: none;
+    border: 1px solid var(--border);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .chip:hover { background: #E2E8F0; border-color: var(--primary); color: var(--primary); }
+  .chip .emoji { font-size: 15px; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center; padding: 80px 40px 120px;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 40px; border-radius: 12px;
+    font-size: 16px; font-weight: 600;
+    text-decoration: none; color: white;
+    background: var(--gradient-1);
+    box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.4); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center; padding: 40px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text-lighter);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    nav .links { gap: 16px; }
+    nav .links a { font-size: 13px; }
+    section { padding: 60px 20px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .coop-grid { grid-template-columns: 1fr; gap: 24px; }
+    .coop-center { flex-direction: row; padding-top: 0; }
+    .coop-center .arrow-lr { transform: rotate(90deg); }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUpIn 0.6s ease forwards;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  @keyframes fadeUpIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">德湃 DEPAI</div>
+  <div class="links">
+    <a href="#about">关于我们</a>
+    <a href="#software">核心产品</a>
+    <a href="#market">海外市场</a>
+    <a href="#cooperation">合作模式</a>
+    <a href="#results">成绩</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="position:relative;z-index:1;">
+    <h1>智能投教 · 全球赋能</h1>
+    <p class="sub">
+      从投资者教育到智能投顾，德湃以合规牌照、AI 技术与本地化运营，
+      打通国内投教出海的全链路。
+    </p>
+    <div class="badges">
+      <span class="badge"><span class="dot blue"></span>香港 9 号牌照</span>
+      <span class="badge"><span class="dot amber"></span>AI 原生团队</span>
+      <span class="badge"><span class="dot green"></span>海外本地化运营</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1 : 关于我们 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="about">
+  <div class="fade-up">
+    <span class="section-label blue">PART 1</span>
+    <h2 class="section-title">关于德湃</h2>
+    <p class="section-desc">
+      投资者教育 × 智能交易软件，双轮驱动。
+    </p>
+  </div>
+
+  <div class="cards cols-2 fade-up">
+    <div class="card">
+      <div class="icon blue">📚</div>
+      <h3>投教业务</h3>
+      <p>
+        面向海外华人及全球投资者的系统化投教内容体系，覆盖美股、港股、加密货币等主流资产类别。
+        通过 KOL 矩阵 + 社群运营 + 直播课程的组合拳，构建高粘性用户社区。
+      </p>
+      <div class="chips">
+        <a href="#" class="chip" target="_blank"><span class="emoji">📺</span> YouTube 频道</a>
+        <a href="#" class="chip" target="_blank"><span class="emoji">🐦</span> Twitter/X</a>
+        <a href="#" class="chip" target="_blank"><span class="emoji">📱</span> TikTok</a>
+        <a href="#" class="chip" target="_blank"><span class="emoji">💬</span> Telegram 社群</a>
+      </div>
+    </div>
+
+    <div class="card" style="border-color: var(--primary);">
+      <div class="icon amber">⚡</div>
+      <h3>智能交易软件 <span style="font-size:12px;color:var(--accent);font-weight:700;">核心</span></h3>
+      <p>
+        自研订单流（Order Flow）分析工具 + 智能投顾系统。
+        实时市场数据可视化、AI 信号提示、策略回测、一键跟单，
+        让散户拥有机构级的交易辅助能力。
+      </p>
+      <div class="chips">
+        <a href="#" class="chip" target="_blank"><span class="emoji">🌐</span> 产品官网</a>
+        <a href="#" class="chip" target="_blank"><span class="emoji">🎥</span> Demo 演示</a>
+        <a href="#" class="chip" target="_blank"><span class="emoji">📊</span> 订单流介绍</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 业务逻辑流 -->
+  <div class="flow fade-up">
+    <div class="flow-node">
+      投教内容<small>KOL · 课程 · 直播</small>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node">
+      社群沉淀<small>Telegram · Discord</small>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node highlight">
+      软件转化<small>订单流 · 智能投顾</small>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-node accent">
+      持续变现<small>订阅 · 跟单 · 增值</small>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1.5 : 软件产品详情 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="software" style="background: white; border-radius: 24px; box-shadow: var(--shadow-md);">
+  <div class="fade-up">
+    <span class="section-label blue">LIVE DEMO</span>
+    <h2 class="section-title">核心产品展示</h2>
+    <p class="section-desc">
+      现场演示 · 实时数据 · 所见即所得
+    </p>
+  </div>
+
+  <div class="cards cols-3 fade-up">
+    <div class="card">
+      <div class="icon purple">📈</div>
+      <h3>订单流分析</h3>
+      <p>实时解读市场微观结构，让散户看懂机构资金流向。支持 Footprint、Delta、CVD 等多维度分析。</p>
+      <a href="#" class="link" target="_blank">查看详情</a>
+    </div>
+    <div class="card">
+      <div class="icon blue">🤖</div>
+      <h3>AI 智能投顾</h3>
+      <p>基于深度学习的市场分析引擎，提供个性化投资建议、风险预警和仓位管理方案。</p>
+      <a href="#" class="link" target="_blank">了解更多</a>
+    </div>
+    <div class="card">
+      <div class="icon green">📲</div>
+      <h3>一键跟单系统</h3>
+      <p>连接主流交易所 API，支持策略订阅、信号推送、自动执行，降低操作门槛。</p>
+      <a href="#" class="link" target="_blank">体验入口</a>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding:40px;background:#F8FAFC;border-radius:16px;" class="fade-up">
+    <p style="color:var(--text-light);font-size:15px;">
+      📍 此处为<strong>现场演示环节</strong> — 实时展示产品功能与交互体验
+    </p>
+    <div class="chips" style="justify-content:center;margin-top:16px;">
+      <a href="#" class="chip" target="_blank"><span class="emoji">🖥️</span> 打开产品 Web 端</a>
+      <a href="#" class="chip" target="_blank"><span class="emoji">📱</span> 移动端预览</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2 : 海外市场分析 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="market">
+  <div class="fade-up">
+    <span class="section-label amber">PART 2</span>
+    <h2 class="section-title">海外市场 · 机遇与痛点</h2>
+    <p class="section-desc">
+      全球投教市场高速增长，但国内玩家出海面临多重挑战。
+    </p>
+  </div>
+
+  <!-- 市场数据 -->
+  <div class="stats fade-up">
+    <div class="stat">
+      <div class="num">$12B+</div>
+      <div class="label">全球在线投教市场规模（预估）</div>
+    </div>
+    <div class="stat">
+      <div class="num">35%</div>
+      <div class="label">CAGR 年复合增长率</div>
+    </div>
+    <div class="stat">
+      <div class="num">6000万+</div>
+      <div class="label">海外华人投资者群体</div>
+    </div>
+    <div class="stat">
+      <div class="num">< 5%</div>
+      <div class="label">合规出海的国内投教机构占比</div>
+    </div>
+  </div>
+
+  <!-- 痛点 vs 解法 -->
+  <div class="pain-grid fade-up">
+    <div class="pain-col">
+      <h3>🔴 出海痛点</h3>
+      <div class="pain-item red"><strong>牌照合规：</strong>海外金融监管复杂，无牌照运营风险极高（SEC/SFC/FCA）</div>
+      <div class="pain-item red"><strong>本地化缺失：</strong>直接"汉化"产品出海，用户体验差、信任度低</div>
+      <div class="pain-item red"><strong>支付通道：</strong>跨境支付结算困难，法币/加密混合场景处理复杂</div>
+      <div class="pain-item red"><strong>流量获取：</strong>国内增长玩法（微信生态）海外失效，获客成本高</div>
+      <div class="pain-item red"><strong>文化差异：</strong>投教内容、销售话术、社群运营方式需完全重构</div>
+    </div>
+    <div class="pain-col">
+      <h3>🟢 德湃的解法</h3>
+      <div class="pain-item green"><strong>9 号牌照：</strong>持有香港 SFC 9 号牌，合规框架成熟可复用</div>
+      <div class="pain-item green"><strong>海外基因：</strong>团队本身在海外运营，产品从第一天就为海外设计</div>
+      <div class="pain-item green"><strong>多通道支付：</strong>已打通 Stripe/加密支付等多元收款方案</div>
+      <div class="pain-item green"><strong>矩阵打法：</strong>YouTube/X/TikTok/Telegram 多平台内容矩阵</div>
+      <div class="pain-item green"><strong>社群运营：</strong>深耕海外华人 + 英文社群，懂用户懂文化</div>
+    </div>
+  </div>
+
+  <div class="chips fade-up" style="margin-top:24px;">
+    <a href="https://www.sfc.hk" class="chip" target="_blank"><span class="emoji">🏛️</span> 香港证监会 SFC</a>
+    <a href="https://www.sec.gov" class="chip" target="_blank"><span class="emoji">🇺🇸</span> SEC 官网</a>
+    <a href="https://www.fca.org.uk" class="chip" target="_blank"><span class="emoji">🇬🇧</span> FCA 官网</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3 : 合作模式 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="cooperation">
+  <div class="fade-up">
+    <span class="section-label green">PART 3</span>
+    <h2 class="section-title">合作共赢 · 双向赋能</h2>
+    <p class="section-desc">
+      不是单向输出，而是资源互补——我们各自带上最强的牌。
+    </p>
+  </div>
+
+  <!-- 双向赋能图 -->
+  <div class="coop-grid fade-up">
+    <div class="coop-side">
+      <h3 style="text-align:center;color:var(--primary);font-size:18px;margin-bottom:8px;">🌏 德湃赋能</h3>
+      <div class="coop-item">
+        <h4>🏛️ 9 号牌照资源</h4>
+        <p>香港 SFC 9 号牌合规框架，为合作方提供海外展业的合规底座</p>
+        <span class="tag blue">合规壁垒</span>
+      </div>
+      <div class="coop-item">
+        <h4>🎯 海外产品运营</h4>
+        <p>适应海外市场基因的产品设计、内容策略和用户运营方法论</p>
+        <span class="tag blue">本地化</span>
+      </div>
+      <div class="coop-item">
+        <h4>🤖 AI 技术团队</h4>
+        <p>AI 原生团队，在智能投顾、NLP 分析、自动化运营等方向持续迭代，符合未来发展大趋势</p>
+        <span class="tag blue">技术护城河</span>
+      </div>
+      <div class="coop-item">
+        <h4>📡 海外渠道网络</h4>
+        <p>YouTube / X / TikTok / Telegram 多平台矩阵，KOL 资源与社群体系</p>
+        <span class="tag blue">流量基础</span>
+      </div>
+    </div>
+
+    <div class="coop-center">
+      <span class="arrow-lr">⟵</span>
+      <span style="font-size:32px;">🤝</span>
+      <span class="arrow-lr">⟶</span>
+    </div>
+
+    <div class="coop-side">
+      <h3 style="text-align:center;color:var(--success);font-size:18px;margin-bottom:8px;">🇨🇳 合作方赋能</h3>
+      <div class="coop-item">
+        <h4>📜 国内牌照资源</h4>
+        <p>投顾牌照、基金销售牌照等资质，为海外流量端提供合规变现通道</p>
+        <span class="tag green">资质互补</span>
+      </div>
+      <div class="coop-item">
+        <h4>📢 流量端赋能</h4>
+        <p>国内成熟的投教流量体系、公域投放能力、品牌背书</p>
+        <span class="tag green">规模效应</span>
+      </div>
+      <div class="coop-item">
+        <h4>💰 资金与资源</h4>
+        <p>战略投资、市场推广预算、行业资源对接</p>
+        <span class="tag green">加速成长</span>
+      </div>
+      <div class="coop-item">
+        <h4>📋 内容与师资</h4>
+        <p>成熟的投教内容体系、讲师资源，可快速本地化适配海外</p>
+        <span class="tag green">内容壁垒</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- 成绩与背书 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="results">
+  <div class="fade-up">
+    <span class="section-label green">TRACK RECORD</span>
+    <h2 class="section-title">逆势增长 · 已验证的模型</h2>
+  </div>
+
+  <div class="results-banner fade-up">
+    <h3>在最严苛的条件下，我们依然跑通了</h3>
+    <p>
+      公域被封杀、未进行大规模投流、仅依靠矩阵账号和社群裂变——
+      在小众垂直领域逆势拿到增长。
+    </p>
+    <div class="highlight-text">
+      ✨ 如果有流量端赋能，增长将是现在的数倍
+    </div>
+  </div>
+
+  <!-- 逆境条件列表 -->
+  <div class="cards cols-3 fade-up">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:40px;margin-bottom:12px;">🚫</div>
+      <h3>零投流</h3>
+      <p>几乎没有付费广告投放，全靠内容驱动自然增长</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:40px;margin-bottom:12px;">🔒</div>
+      <h3>公域封杀</h3>
+      <p>主流平台限流封号，仅靠矩阵账号持续产出</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:40px;margin-bottom:12px;">🎯</div>
+      <h3>垂直赛道</h3>
+      <p>订单流 + 智能投顾，极小众但高价值赛道</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;padding:32px;background:#F0FDF4;border-radius:16px;border:1px solid #BBF7D0;" class="fade-up">
+    <p style="font-size:16px;color:#166534;font-weight:500;">
+      💡 这不是 PPT 里的美好故事——这是已经被验证的增长模型。<br>
+      我们缺的不是能力，是弹药。
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-up">
+  <h2 class="section-title" style="margin-bottom:16px;">让我们一起，定义海外智能投教的未来</h2>
+  <p class="section-desc" style="margin: 0 auto 32px;">
+    合规 × 技术 × 运营 × 流量 = 全球化的正确打开方式
+  </p>
+  <a href="mailto:contact@depai.com" class="cta-btn">
+    📧 联系我们
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 德湃 DEPAI · 香港 SFC 9 号牌照持牌机构</p>
+</footer>
+
+<!-- Scroll Animation -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
