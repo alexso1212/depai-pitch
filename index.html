@@ -245,6 +245,52 @@
     .funnel-arrow { transform: rotate(90deg); }
   }
 
+  /* ─── OVERSEAS INSIGHT ─── */
+  .vs-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; border-radius: 16px; overflow: hidden; }
+  .vs-table th { padding: 14px 20px; font-weight: 700; font-size: 15px; }
+  .vs-table th.cn { background: #FEF2F2; color: #991B1B; }
+  .vs-table th.os { background: #EEF2FF; color: var(--primary); }
+  .vs-table th.label { background: #F8FAFC; color: var(--text-light); font-size: 13px; font-weight: 600; width: 160px; }
+  .vs-table td { padding: 12px 20px; border-top: 1px solid var(--border); line-height: 1.6; vertical-align: top; }
+  .vs-table td.cn-cell { background: #FFF5F5; color: #7F1D1D; font-size: 13px; }
+  .vs-table td.os-cell { background: #F0F4FF; color: #1e3a8a; font-size: 13px; }
+  .vs-table td.label-cell { background: #F8FAFC; font-weight: 600; font-size: 13px; color: var(--text); }
+
+  .insight-card {
+    border-radius: 16px; padding: 28px 32px; margin: 20px 0;
+    border: 1px solid var(--border);
+  }
+  .insight-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .insight-card .ic-points { list-style: none; padding: 0; margin: 0; }
+  .insight-card .ic-points li { padding: 8px 0; font-size: 14px; line-height: 1.7; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+  .insight-card .ic-points li:last-child { border-bottom: none; }
+  .insight-card .ic-points li .dot { flex-shrink: 0; font-size: 16px; }
+
+  .license-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+  .license-card { border-radius: 14px; padding: 24px; border: 1px solid var(--border); background: white; }
+  .license-card .lc-icon { font-size: 32px; margin-bottom: 12px; }
+  .license-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .license-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .license-card .verdict {
+    margin-top: 14px; padding: 8px 14px; border-radius: 8px;
+    font-size: 12px; font-weight: 700;
+  }
+  .license-card .verdict.need { background: #FEF3C7; color: #92400E; }
+  .license-card .verdict.optional { background: #D1FAE5; color: #065F46; }
+  .license-card .verdict.skip { background: #EEF2FF; color: var(--primary); }
+
+  .content-diff { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+  .content-col { border-radius: 14px; padding: 24px; border: 1px solid var(--border); }
+  .content-col h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .content-col .ci { padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; }
+  .content-col .ci.red { background: #FEF2F2; border-left: 3px solid #EF4444; }
+  .content-col .ci.blue { background: #EEF2FF; border-left: 3px solid var(--primary); }
+
+  @media (max-width: 768px) {
+    .license-grid { grid-template-columns: 1fr; }
+    .content-diff { grid-template-columns: 1fr; }
+  }
+
   /* ─── COOPERATION ─── */
   .coop-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: start; margin: 48px 0; }
   .coop-side { display: flex; flex-direction: column; gap: 16px; }
@@ -397,6 +443,7 @@
     <a href="#market">海外市场</a>
     <a href="#cooperation">合作模式</a>
     <a href="#competitors">竞品分析</a>
+    <a href="#overseas-insight">出海认知</a>
     <a href="#results">成绩</a>
     <a href="#trading-room">交易室</a>
   </div>
@@ -1226,6 +1273,178 @@
       <img src="https://www.google.com/s2/favicons?domain=sfc.hk&sz=32" alt=""> 香港 SFC
     </a>
   </div>
+</section>
+
+<!-- ═══════════════════ OVERSEAS INSIGHT ═══════════════════ -->
+<section id="overseas-insight" style="background: white; border-radius: 24px; box-shadow: var(--shadow-md);">
+  <span class="section-label amber">出海认知</span>
+  <h2 class="section-title">出海怎么出 · 核心认知差异</h2>
+  <p class="section-desc">不是把国内那套翻译成英文——出海需要重建对"流量、变现、信任、牌照"的基本认知。</p>
+
+  <!-- 1. 国内 vs 海外商业模式对比 -->
+  <h3 style="font-size:20px;font-weight:700;margin:0 0 8px;">🔄 国内 vs 海外投教商业模式：根本差异</h3>
+  <p style="color:var(--text-light);font-size:14px;margin-bottom:20px;">两种模式的底层逻辑完全不同——国内打私域、海外打公信力。</p>
+
+  <table class="vs-table">
+    <thead>
+      <tr>
+        <th class="label">维度</th>
+        <th class="cn">🇨🇳 国内投教模式</th>
+        <th class="os">🌍 海外投教模式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label-cell">流量入口</td>
+        <td class="cn-cell">微信/抖音/视频号私域生态，靠拉群裂变；公域流量快但易被封</td>
+        <td class="os-cell">YouTube/TikTok/X 公域内容积累；有机流量慢但可复利，算法可叠加</td>
+      </tr>
+      <tr>
+        <td class="label-cell">信任建立</td>
+        <td class="cn-cell">靠"神秘感"和"内幕感"，强调收益截图、豪车豪宅 P&L 展示</td>
+        <td class="os-cell">靠"透明度"和"教育价值"，展示方法论过程、trade journal、亏损复盘</td>
+      </tr>
+      <tr>
+        <td class="label-cell">内容风格</td>
+        <td class="cn-cell">短平快、情绪触发（焦虑/贪婪）、强调"学了就能赚"；内容高度同质化</td>
+        <td class="os-cell">系统化、长视频教育为主、不承诺收益；帮用户"真正理解"而非"跟着做"</td>
+      </tr>
+      <tr>
+        <td class="label-cell">社群运营</td>
+        <td class="cn-cell">私域微信群，封闭管理，用稀缺感/人情维持；群内多荐股和课程推销</td>
+        <td class="os-cell">Discord/Telegram 公开社区，分层 Free/Premium；靠内容质量留人，社群即产品</td>
+      </tr>
+      <tr>
+        <td class="label-cell">主要变现</td>
+        <td class="cn-cell">大课一次性收费 + 收费荐股 + 软件订阅；一锤子买卖居多</td>
+        <td class="os-cell">课程 + 月度订阅 + 工具软件 + 社区会员 + Prop 资金；多层长期 LTV</td>
+      </tr>
+      <tr>
+        <td class="label-cell">用户关系</td>
+        <td class="cn-cell">割完就走，复购靠新内容新包装，流失率极高</td>
+        <td class="os-cell">长期陪伴式，用户视 KOL 为"教练"；复购课程、推荐新用户、社区自维系</td>
+      </tr>
+      <tr>
+        <td class="label-cell">定价策略</td>
+        <td class="cn-cell">课程大促 + 限时折扣，制造紧迫感；价格不透明</td>
+        <td class="os-cell">价格公开挂牌，分档清晰；高价课靠口碑，不靠推销</td>
+      </tr>
+      <tr>
+        <td class="label-cell">监管风险</td>
+        <td class="cn-cell">依赖监管灰色地带；公域被封是常态，需持续迁移流量</td>
+        <td class="os-cell">主动合规（免责声明/内容边界设计）；长期运营反而更稳定</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="padding:20px 24px;background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border-radius:14px;border:1px solid #FDE68A;margin-bottom:40px;">
+    <p style="font-size:14px;color:#92400E;font-weight:500;line-height:1.8;">
+      ⚡ <strong>核心认知差异：</strong>国内投教卖的是"机会感"，海外投教卖的是"能力感"。
+      前者让用户觉得跟着你能赚钱，后者让用户觉得跟着你能变强。
+      出海不是翻译，是<strong>整套用户关系的重建</strong>。
+    </p>
+  </div>
+
+  <!-- 2. 牌照到底重不重要 -->
+  <h3 style="font-size:20px;font-weight:700;margin:0 0 8px;">📋 牌照资质到底要不要？</h3>
+  <p style="color:var(--text-light);font-size:14px;margin-bottom:20px;">答案是：<strong>取决于你做什么</strong>。不是所有出海都需要牌照，但有些事没牌照绝对不能碰。</p>
+
+  <div class="license-grid">
+    <div class="license-card" style="border-top: 4px solid #EF4444;">
+      <div class="lc-icon">🚫</div>
+      <h4>必须有牌照</h4>
+      <p>管理客户资金（资产管理）、提供个性化投资建议（收费荐股/配置方案）、经纪交易执行（开户 / 交割）——这几类在任何主要市场无牌照经营都属违法。</p>
+      <div class="verdict need">⚠️ 无牌照碰这些 = 直接面临监管处罚</div>
+    </div>
+    <div class="license-card" style="border-top: 4px solid #F59E0B;">
+      <div class="lc-icon">⚖️</div>
+      <h4>视情况而定</h4>
+      <p>内容营销（YouTube/TikTok 分析视频）、订阅制社区（Discord 会员）、交易工具软件——只要你不做"个性化投资建议"，大多数市场允许以"教育内容"身份运营。但话术必须严格做免责设计。</p>
+      <div class="verdict optional">✅ 做对内容边界可以先跑，再看规模补牌照</div>
+    </div>
+    <div class="license-card" style="border-top: 4px solid #2563EB;">
+      <div class="lc-icon">🚀</div>
+      <h4>牌照是放大器</h4>
+      <p>香港 SFC 9 号牌这类合规背书，不是"准入门票"而是"信任放大器"——让用户、机构合作方、广告平台都更放心。尤其是在做大规模付费课程和资金托管服务时，牌照直接提升溢价空间。</p>
+      <div class="verdict skip">💡 德湃已有 SFC 9 号牌，直接共享这层信任背书</div>
+    </div>
+  </div>
+
+  <div class="insight-card" style="background:#F0FDF4;border-color:#BBF7D0;">
+    <h4 style="color:#065F46;">🔑 结论：先做内容 IP，牌照分阶段配套</h4>
+    <ul class="ic-points">
+      <li><span class="dot">①</span><span><strong>第一阶段（0→1）：</strong>纯内容教育模式，无需牌照。YouTube + 社区，建立受众和信任，验证内容方向。核心是话术合规（不说"买这个赚钱"，只说"这是我的分析框架"）。</span></li>
+      <li><span class="dot">②</span><span><strong>第二阶段（1→10）：</strong>推出付费课程 + 工具订阅。需要跨境收款方案（Stripe/加密）。在新加坡/马来西亚等地可借助德湃合规框架快速落地。</span></li>
+      <li><span class="dot">③</span><span><strong>第三阶段（10→∞）：</strong>如需管理资金、出 Alpha 产品、做智能投顾，这时再叠加本地牌照或与持牌机构合作。规模证明了再投合规成本，ROI 更合理。</span></li>
+    </ul>
+  </div>
+
+  <!-- 3. 社媒 IP 内容的核心差异 -->
+  <h3 style="font-size:20px;font-weight:700;margin:40px 0 8px;">📲 海外能起量的 IP · 内容逻辑与国内有什么不同</h3>
+  <p style="color:var(--text-light);font-size:14px;margin-bottom:20px;">同样是"做交易 KOL"，但算法逻辑、用户期待、内容结构完全不同。</p>
+
+  <div class="content-diff">
+    <div class="content-col" style="background:#FFF5F5;border-color:#FECACA;">
+      <h4 style="color:#991B1B;">🇨🇳 国内起量内容逻辑</h4>
+      <div class="ci red"><strong>情绪驱动：</strong>焦虑标题（"你不知道的暴利机会"），贪婪钩子，让用户感到"错过就亏了"</div>
+      <div class="ci red"><strong>结果展示优先：</strong>P&L 截图、收益曲线、豪车照片——先秀结果，过程是付费才给</div>
+      <div class="ci red"><strong>私域沉淀：</strong>每个内容都导流到微信群，群是变现场所，公域只是漏斗入口</div>
+      <div class="ci red"><strong>高频短内容：</strong>15–60 秒短视频，话题感强，算法推荐靠互动数据而非内容质量</div>
+      <div class="ci red"><strong>神秘感设计：</strong>知识是稀缺资源，"付费才告诉你"；免费的只是钩子</div>
+      <div class="ci red"><strong>一次性转化：</strong>大课变现，用户买完课程关系就结束，复购率低</div>
+    </div>
+    <div class="content-col" style="background:#F0F4FF;border-color:#C7D2FE;">
+      <h4 style="color:#1e3a8a;">🌍 海外起量内容逻辑</h4>
+      <div class="ci blue"><strong>教育价值驱动：</strong>"帮你真正学会"而非"帮你赚钱"。用户相信 KOL 是老师，不是荐股顾问</div>
+      <div class="ci blue"><strong>过程透明：</strong>Trade journal 公开、亏损复盘视频反而最多播放——真实感建立信任，比收益截图更有效</div>
+      <div class="ci blue"><strong>公域沉淀：</strong>YouTube 内容永久存活，持续带来新订阅者；一个好视频可以带流量 3–5 年</div>
+      <div class="ci blue"><strong>长视频 + 系列内容：</strong>20–60 分钟系统教程，YouTube 算法奖励完播率；系列内容让用户追着看</div>
+      <div class="ci blue"><strong>免费给真干货：</strong>核心方法论免费讲清楚，付费的是陪伴、答疑、工具、进阶系统——"慷慨即营销"</div>
+      <div class="ci blue"><strong>长期陪伴变现：</strong>月度订阅 + 社区会员 + 工具 + 年度课程——用户粘性高，LTV 是国内模式的 5–10 倍</div>
+    </div>
+  </div>
+
+  <!-- 4. 社媒平台权重 -->
+  <h3 style="font-size:20px;font-weight:700;margin:40px 0 16px;">📡 海外各平台在投教生态中的权重</h3>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px;">
+    <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:20px;border-top:4px solid #FF0000;">
+      <div style="font-size:28px;margin-bottom:8px;">▶️</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;">YouTube</h4>
+      <p style="font-size:13px;color:var(--text-light);line-height:1.6;">核心主战场。长视频积累 SEO，内容永久存活。教育类 KOL 必须在这里扎根，订阅者是最高质量受众。</p>
+      <div style="margin-top:10px;font-size:12px;font-weight:700;color:#DC2626;background:#FEF2F2;padding:4px 10px;border-radius:20px;display:inline-block;">🔴 核心平台</div>
+    </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:20px;border-top:4px solid #1DA1F2;">
+      <div style="font-size:28px;margin-bottom:8px;">𝕏</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;">X (Twitter)</h4>
+      <p style="font-size:13px;color:var(--text-light);line-height:1.6;">交易圈社交层，KOL 互动与建圈首选。实时市场评论、thread 系列内容、高密度圈层网络效应。</p>
+      <div style="margin-top:10px;font-size:12px;font-weight:700;color:var(--primary);background:#EEF2FF;padding:4px 10px;border-radius:20px;display:inline-block;">🔵 圈层必备</div>
+    </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:20px;border-top:4px solid #5865F2;">
+      <div style="font-size:28px;margin-bottom:8px;">💬</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;">Discord</h4>
+      <p style="font-size:13px;color:var(--text-light);line-height:1.6;">社区沉淀层，付费分层的核心场所。Free → Premium 会员区隔，日常实时互动，是变现效率最高的载体。</p>
+      <div style="margin-top:10px;font-size:12px;font-weight:700;color:#059669;background:#D1FAE5;padding:4px 10px;border-radius:20px;display:inline-block;">🟢 变现核心</div>
+    </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:20px;border-top:4px solid #000000;">
+      <div style="font-size:28px;margin-bottom:8px;">🎵</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;">TikTok / Instagram</h4>
+      <p style="font-size:13px;color:var(--text-light);line-height:1.6;">漏斗最顶端，冷启动利器。短视频触达新受众，但不是深度教育的场所，主要是引流入 YouTube 和社区。</p>
+      <div style="margin-top:10px;font-size:12px;font-weight:700;color:#D97706;background:#FEF3C7;padding:4px 10px;border-radius:20px;display:inline-block;">🟡 冷启动引流</div>
+    </div>
+  </div>
+
+  <!-- 5. 实操建议 -->
+  <div class="insight-card" style="background: linear-gradient(135deg,#EEF2FF,#F0F4FF);border-color:#C7D2FE;">
+    <h4 style="color:var(--primary);">🎯 无为股道出海路线图建议（基于以上分析）</h4>
+    <ul class="ic-points">
+      <li><span class="dot">🥇</span><span><strong>第一步：内容 IP 先行</strong> — 在 YouTube 建立英文（或双语）系统化教育内容，主题聚焦你们擅长的品种/方法。目标：3–6 个月积累 1,000 个真实订阅者，验证海外内容方向。</span></li>
+      <li><span class="dot">🥈</span><span><strong>第二步：Discord 社区冷启动</strong> — 同步建立 Discord 社区，免费区做活跃度，Premium 区 $20–$50/月。从 YouTube 导流，建立社区密度。目标：100 个付费会员即可验证变现模型。</span></li>
+      <li><span class="dot">🥉</span><span><strong>第三步：借力德湃合规框架</strong> — 在新加坡/马来西亚推出付费课程时，通过德湃的 SFC 9 号牌背书和本地合作关系降低合规摩擦，Stripe 跨境收款快速落地，无需重新走牌照流程。</span></li>
+      <li><span class="dot">🔑</span><span><strong>内容红线记牢</strong> — 海外内容话术：只说"这是我的分析方法/观察"，绝不说"你应该买/卖 X"。免责声明必须出现在每个视频结尾和社区置顶。这一条做好了，教育内容无需牌照也能长期运营。</span></li>
+    </ul>
+  </div>
+
 </section>
 
 <!-- ═══════════════════ PART 3 ═══════════════════ -->
