@@ -243,6 +243,54 @@
   }
   .product-showcase .text ul li::before { content: '✓'; color: var(--success); font-weight: 700; }
 
+  /* ─── TRADING ROOM GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .gallery-grid .gallery-item {
+    position: relative; overflow: hidden; border-radius: 12px;
+    cursor: pointer; background: #000;
+  }
+  .gallery-grid .gallery-item.wide { grid-column: span 2; }
+  .gallery-grid .gallery-item.tall { grid-row: span 2; }
+  .gallery-grid .gallery-item img {
+    width: 100%; height: 260px; object-fit: cover;
+    display: block; transition: transform 0.4s ease, opacity 0.4s;
+  }
+  .gallery-grid .gallery-item.tall img { height: 532px; }
+  .gallery-grid .gallery-item.wide img { height: 260px; }
+  .gallery-grid .gallery-item:hover img { transform: scale(1.05); opacity: 0.85; }
+  .gallery-grid .gallery-item .caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white; padding: 20px 16px 14px;
+    font-size: 13px; font-weight: 500; opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-grid .gallery-item:hover .caption { opacity: 1; }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; z-index: 9999; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.92); align-items: center; justify-content: center; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
+  .lightbox .lb-close { position:absolute; top:20px; right:28px; color:white; font-size:36px; cursor:pointer; line-height:1; }
+  .lightbox .lb-prev, .lightbox .lb-next {
+    position:absolute; top:50%; transform:translateY(-50%);
+    color:white; font-size:40px; cursor:pointer; padding: 16px; user-select:none;
+    background: rgba(255,255,255,0.1); border-radius: 50%;
+  }
+  .lightbox .lb-prev { left: 16px; }
+  .lightbox .lb-next { right: 16px; }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid .gallery-item.wide { grid-column: span 1; }
+    .gallery-grid .gallery-item.tall img { height: 260px; }
+  }
+
   /* ─── CTA ─── */
   .cta-section { text-align: center; padding: 80px 40px 120px; }
   .cta-btn {
@@ -286,6 +334,7 @@
     <a href="#cooperation">合作模式</a>
     <a href="#competitors">竞品分析</a>
     <a href="#results">成绩</a>
+    <a href="#trading-room">交易室</a>
   </div>
 </nav>
 
@@ -1018,6 +1067,100 @@
     </p>
   </div>
 </section>
+
+<!-- ═══════════════════ TRADING ROOM GALLERY ═══════════════════ -->
+<section id="trading-room" style="background: white; border-radius: 24px; box-shadow: var(--shadow-md);">
+  <span class="section-label blue">OUR SPACE</span>
+  <h2 class="section-title">实战交易室 · 专业级硬件配置</h2>
+  <p class="section-desc">每一块屏幕背后，都是真实的市场博弈——这是我们的主场。</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item tall" onclick="openLightbox(0)">
+      <img src="images/trading-room-1.jpg" alt="交易室全景">
+      <div class="caption">交易室全景</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="images/trading-room-2.jpg" alt="多屏交易工作站">
+      <div class="caption">多屏交易工作站</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="images/trading-room-3.jpg" alt="实时行情监控">
+      <div class="caption">实时行情监控</div>
+    </div>
+    <div class="gallery-item wide" onclick="openLightbox(3)">
+      <img src="images/trading-room-4.jpg" alt="团队协作区">
+      <div class="caption">团队协作区</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(4)">
+      <img src="images/trading-room-5.jpg" alt="策略分析室">
+      <div class="caption">策略分析室</div>
+    </div>
+    <div class="gallery-item wide" onclick="openLightbox(5)">
+      <img src="images/trading-room-6.jpg" alt="数据看板">
+      <div class="caption">数据看板</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="images/trading-room-7.jpg" alt="德湃总部">
+      <div class="caption">德湃总部</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(7)">
+      <img src="images/trading-room-8.jpg" alt="交易终端">
+      <div class="caption">交易终端</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(8)">
+      <img src="images/trading-room-9.jpg" alt="研究分析区">
+      <div class="caption">研究分析区</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(9)">
+      <img src="images/trading-room-10.jpg" alt="实时交易监控">
+      <div class="caption">实时交易监控</div>
+    </div>
+    <div class="gallery-item wide" onclick="openLightbox(10)">
+      <img src="images/trading-room-11.jpg" alt="交易室一角">
+      <div class="caption">交易室一角</div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <span class="lb-close" onclick="closeLightbox()">×</span>
+  <span class="lb-prev" onclick="changeLightbox(-1)">&#8249;</span>
+  <img id="lb-img" src="" alt="">
+  <span class="lb-next" onclick="changeLightbox(1)">&#8250;</span>
+</div>
+
+<script>
+const tradingImages = [
+  'images/trading-room-1.jpg','images/trading-room-2.jpg','images/trading-room-3.jpg',
+  'images/trading-room-4.jpg','images/trading-room-5.jpg','images/trading-room-6.jpg',
+  'images/trading-room-7.jpg','images/trading-room-8.jpg','images/trading-room-9.jpg',
+  'images/trading-room-10.jpg','images/trading-room-11.jpg'
+];
+let currentIdx = 0;
+function openLightbox(idx) {
+  currentIdx = idx;
+  document.getElementById('lb-img').src = tradingImages[idx];
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeLightboxBg(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function changeLightbox(dir) {
+  currentIdx = (currentIdx + dir + tradingImages.length) % tradingImages.length;
+  document.getElementById('lb-img').src = tradingImages[currentIdx];
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') changeLightbox(-1);
+  if (e.key === 'ArrowRight') changeLightbox(1);
+});
+</script>
 
 <!-- CTA -->
 <div class="cta-section">
