@@ -45,7 +45,7 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   nav .logo { font-weight: 700; font-size: 20px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  nav .links { display: flex; gap: 32px; }
+  nav .links { display: flex; gap: 24px; }
   nav .links a { text-decoration: none; color: var(--text-light); font-size: 14px; font-weight: 500; transition: color 0.2s; }
   nav .links a:hover { color: var(--primary); }
 
@@ -55,7 +55,7 @@
     text-align: center; padding: 120px 40px 80px;
     position: relative; overflow: hidden;
     background: linear-gradient(180deg, rgba(17,24,39,0.72) 0%, rgba(17,24,39,0.55) 100%),
-                url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920&q=80') center/cover no-repeat;
+                url('images/deltapex-main.jpg') center/cover no-repeat;
     color: white;
   }
   .hero h1 {
@@ -284,6 +284,7 @@
     <a href="#software">核心产品</a>
     <a href="#market">海外市场</a>
     <a href="#cooperation">合作模式</a>
+    <a href="#competitors">竞品分析</a>
     <a href="#results">成绩</a>
   </div>
 </nav>
@@ -313,7 +314,7 @@
   <div class="cards cols-2">
     <!-- 投教业务 -->
     <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="社媒内容矩阵">
+      <img class="card-img" src="images/krechendo-room1.jpg" alt="社媒内容矩阵">
       <div class="card-body">
         <h3>投教业务</h3>
         <p>面向海外华人及全球投资者的系统化投教内容体系，覆盖美股、港股、加密货币等主流资产。通过 KOL 矩阵 + 社群运营 + 直播课程构建高粘性社区。</p>
@@ -336,7 +337,7 @@
 
     <!-- 软件业务 -->
     <div class="card featured">
-      <img class="card-img" src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=800&q=80" alt="交易软件界面" style="height:220px;">
+      <img class="card-img" src="images/bookmap-hero.webp" alt="交易软件界面" style="height:220px;object-fit:cover;">
       <div class="card-body">
         <h3>智能交易软件 <span style="display:inline-block;background:var(--gradient-2);color:white;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;vertical-align:middle;">核心</span></h3>
         <p>自研订单流（Order Flow）分析工具 + 智能投顾系统。实时市场数据可视化、AI 信号提示、策略回测、一键跟单，让散户拥有机构级交易辅助能力。</p>
@@ -355,22 +356,22 @@
   <!-- 业务逻辑流 -->
   <div class="flow">
     <div class="flow-node">
-      <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=400&q=80" alt="内容创作">
+      <img src="images/smb-teaching.jpg" alt="内容创作">
       投教内容<small>KOL · 课程 · 直播</small>
     </div>
     <span class="flow-arrow">→</span>
     <div class="flow-node">
-      <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=400&q=80" alt="社群运营">
+      <img src="images/krechendo-room2.jpg" alt="社群运营">
       社群沉淀<small>Telegram · Discord</small>
     </div>
     <span class="flow-arrow">→</span>
     <div class="flow-node highlight">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="数据分析" style="opacity:0.3;">
+      <img src="images/bookmap-trading1.webp" alt="订单流软件" style="opacity:0.5;border-radius:4px;">
       软件转化<small>订单流 · 智能投顾</small>
     </div>
     <span class="flow-arrow">→</span>
     <div class="flow-node accent">
-      <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=400&q=80" alt="增长" style="opacity:0.3;">
+      <img src="images/smb-office.jpg" alt="增长" style="opacity:0.3;">
       持续变现<small>订阅 · 跟单 · 增值</small>
     </div>
   </div>
@@ -384,10 +385,10 @@
 
   <!-- 产品1: 订单流 -->
   <div class="product-showcase">
-    <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=900&q=80" alt="订单流分析界面">
+    <img src="images/bookmap-main.webp" alt="订单流分析界面">
     <div class="text">
       <h3>订单流分析引擎</h3>
-      <p>实时解读市场微观结构，让散户看懂机构资金流向。对标 Bookmap、Sierra Chart 等专业工具，但更简洁易用。</p>
+      <p>实时解读市场微观结构，让散户看懂机构资金流向。对标 Bookmap、ATAS 等专业工具，但更简洁易用。</p>
       <ul>
         <li>Footprint / Delta / CVD 多维分析</li>
         <li>实时 DOM（深度图）可视化</li>
@@ -398,9 +399,95 @@
         <a href="https://bookmap.com" class="chip" target="_blank">
           <img src="https://www.google.com/s2/favicons?domain=bookmap.com&sz=32" alt=""> Bookmap 对标
         </a>
-        <a href="https://www.sierrachart.com" class="chip" target="_blank">
-          <img src="https://www.google.com/s2/favicons?domain=sierrachart.com&sz=32" alt=""> Sierra Chart
+        <a href="https://atas.net" class="chip" target="_blank">
+          <img src="https://www.google.com/s2/favicons?domain=atas.net&sz=32" alt=""> ATAS 对标
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 产品截图画廊 -->
+  <div style="margin-top:48px;">
+    <h3 style="font-size:18px;font-weight:600;margin-bottom:20px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;font-size:13px;">📸 产品界面截图</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-heatmap.webp" alt="热图可视化" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">热图 Heatmap</p>
+          <p style="font-size:12px;color:var(--text-light);">实时挂单密度可视化，一眼看清支撑/阻力</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-orderbook.webp" alt="订单簿深度" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">订单簿深度</p>
+          <p style="font-size:12px;color:var(--text-light);">Level 2 实时委托量，机构挂单一目了然</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-volume.webp" alt="成交量分析" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">Volume Delta</p>
+          <p style="font-size:12px;color:var(--text-light);">买卖压力差分析，判断主动多空方向</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-zoom.webp" alt="缩放细节" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">精细缩放</p>
+          <p style="font-size:12px;color:var(--text-light);">任意时间粒度无损缩放，毫秒级行情可见</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-trading2.webp" alt="实盘交易界面" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">实盘交易面板</p>
+          <p style="font-size:12px;color:var(--text-light);">直连交易所 API，下单/止损一步到位</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-trading3.webp" alt="多资产监控" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">多资产监控</p>
+          <p style="font-size:12px;color:var(--text-light);">同屏监控多个标的，跨市场扫描异动</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--border);">
+        <img src="images/bookmap-trading4.webp" alt="策略回测面板" style="width:100%;height:180px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:white;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:4px;">策略回测</p>
+          <p style="font-size:12px;color:var(--text-light);">历史订单流回放与策略验证，交易前先模拟</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATAS 竞品对标展示 -->
+  <div style="margin-top:48px;padding:32px;background:#F8FAFC;border-radius:16px;border:1px solid var(--border);">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:20px;color:var(--text);">🔍 对标竞品：我们做什么不一样</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">竞品（ATAS）</p>
+        <img src="images/atas-home.jpg" alt="ATAS主页" style="width:100%;border-radius:10px;box-shadow:var(--shadow-sm);border:1px solid var(--border);margin-bottom:8px;">
+        <img src="images/atas-product.jpg" alt="ATAS产品界面" style="width:100%;border-radius:10px;box-shadow:var(--shadow-sm);border:1px solid var(--border);">
+        <p style="font-size:12px;color:var(--text-lighter);margin-top:8px;">功能强大，但学习曲线陡峭，定价偏高，无中文支持，界面复杂</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--primary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">德湃优势</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:white;border-radius:10px;padding:14px;border-left:3px solid var(--primary);box-shadow:var(--shadow-sm);">
+            <p style="font-size:13px;font-weight:600;margin-bottom:4px;">中文原生体验</p>
+            <p style="font-size:12px;color:var(--text-light);">界面、教程、客服全中文，零语言障碍</p>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-left:3px solid var(--success);box-shadow:var(--shadow-sm);">
+            <p style="font-size:13px;font-weight:600;margin-bottom:4px;">投教 + 工具一体化</p>
+            <p style="font-size:12px;color:var(--text-light);">买软件送课程，用课程卖软件，双飞轮</p>
+          </div>
+          <div style="background:white;border-radius:10px;padding:14px;border-left:3px solid var(--accent);box-shadow:var(--shadow-sm);">
+            <p style="font-size:13px;font-weight:600;margin-bottom:4px;">订阅价格更亲民</p>
+            <p style="font-size:12px;color:var(--text-light);">面向亚洲市场定价，转化门槛低</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -418,12 +505,12 @@
       </ul>
       <a href="#" class="link" target="_blank">了解更多</a>
     </div>
-    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80" alt="AI 分析界面">
+    <img src="images/deltapex-dom.jpg" alt="AI 分析界面">
   </div>
 
   <!-- 产品3: 跟单 -->
   <div class="product-showcase" style="margin-top:64px;">
-    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=900&q=80" alt="跟单系统">
+    <img src="images/smb-desk1.jpg" alt="跟单系统">
     <div class="text">
       <h3>一键跟单系统</h3>
       <p>连接主流交易所 API，支持策略订阅、信号推送、自动执行，降低操作门槛。</p>
@@ -458,9 +545,289 @@
   </div>
 </section>
 
+<!-- ═══════════════════ COMPETITORS ═══════════════════ -->
+<section id="competitors" style="background:white;border-radius:24px;box-shadow:var(--shadow-md);">
+  <span class="section-label blue">COMPETITIVE LANDSCAPE</span>
+  <h2 class="section-title">竞品全景 · 我们在哪里</h2>
+  <p class="section-desc">全球三大订单流工具深度扫描——知己知彼，才能赢得市场。</p>
+
+  <!-- ── ATAS ── -->
+  <div style="margin-bottom:56px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#1a1a2e;display:flex;align-items:center;justify-content:center;">
+        <img src="https://www.google.com/s2/favicons?domain=atas.net&sz=32" alt="ATAS" style="width:28px;height:28px;">
+      </div>
+      <div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:2px;">ATAS · Advanced Time &amp; Sales</h3>
+        <p style="font-size:13px;color:var(--text-light);">俄罗斯背景 · 专业期货期权交易平台 · €149-€299/月</p>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;">
+        <span style="background:#FEF3C7;color:#B45309;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">强：数据深度</span>
+        <span style="background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">弱：中文化</span>
+        <span style="background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">弱：上手难度</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/atas-home.jpg" alt="ATAS 首页" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:#FAFBFF;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:2px;">官网主页</p>
+          <p style="font-size:12px;color:var(--text-light);">定位欧美专业交易员市场，视觉风格偏黑暗系专业感</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/atas-product.jpg" alt="ATAS 产品界面" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:#FAFBFF;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:2px;">产品界面</p>
+          <p style="font-size:12px;color:var(--text-light);">功能极丰富，面板繁复，新用户学习曲线极陡</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:1px;background:var(--border);margin-bottom:56px;"></div>
+
+  <!-- ── BOOKMAP ── -->
+  <div style="margin-bottom:56px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#0a2540;display:flex;align-items:center;justify-content:center;">
+        <img src="https://www.google.com/s2/favicons?domain=bookmap.com&sz=32" alt="Bookmap" style="width:28px;height:28px;">
+      </div>
+      <div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:2px;">Bookmap · 热图可视化鼻祖</h3>
+        <p style="font-size:13px;color:var(--text-light);">以色列背景 · 发明热图订单流 · $59-$149/月</p>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;">
+        <span style="background:#FEF3C7;color:#B45309;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">强：热图体验</span>
+        <span style="background:#FEF3C7;color:#B45309;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">强：品牌知名度</span>
+        <span style="background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">弱：亚洲支持</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-hero.webp" alt="Bookmap 主界面" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">主界面概览</p>
+          <p style="font-size:11px;color:var(--text-light);">热图 + 实时行情</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-heatmap.webp" alt="热图" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">Heatmap 热图</p>
+          <p style="font-size:11px;color:var(--text-light);">挂单密度可视化</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-orderbook.webp" alt="订单簿" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">订单簿深度</p>
+          <p style="font-size:11px;color:var(--text-light);">Level 2 实时数据</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-volume.webp" alt="成交量" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">Volume 分析</p>
+          <p style="font-size:11px;color:var(--text-light);">买卖压力可视化</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-zoom.webp" alt="缩放" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">精细缩放</p>
+          <p style="font-size:11px;color:var(--text-light);">毫秒级行情回放</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-trading1.webp" alt="交易面板" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">交易面板</p>
+          <p style="font-size:11px;color:var(--text-light);">直连 API 一键下单</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-trading2.webp" alt="实盘界面" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">实盘界面</p>
+          <p style="font-size:11px;color:var(--text-light);">实时仓位追踪</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/bookmap-trading4.webp" alt="高级分析" style="width:100%;height:140px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">高级分析视图</p>
+          <p style="font-size:11px;color:var(--text-light);">多指标叠加分析</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:1px;background:var(--border);margin-bottom:56px;"></div>
+
+  <!-- ── JIGSAW ── -->
+  <div style="margin-bottom:56px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div style="width:48px;height:48px;border-radius:12px;background:#1e3a5f;display:flex;align-items:center;justify-content:center;">
+        <img src="https://www.google.com/s2/favicons?domain=jigsawtrading.com&sz=32" alt="Jigsaw" style="width:28px;height:28px;">
+      </div>
+      <div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:2px;">Jigsaw Trading · 教育 + 工具一体化</h3>
+        <p style="font-size:13px;color:var(--text-light);">英国背景 · 面向新手友好 · 多产品线（DayTradeToWin / JX / PMP）</p>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;">
+        <span style="background:#D1FAE5;color:#065F46;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">强：教育整合</span>
+        <span style="background:#FEF3C7;color:#B45309;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">强：英语市场</span>
+        <span style="background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">弱：中文亚洲</span>
+      </div>
+    </div>
+
+    <!-- Jigsaw 产品线 Hero -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;">
+      <div style="border-radius:12px;overflow:hidden;border:2px solid #1e3a5f;box-shadow:var(--shadow-md);">
+        <img src="images/jigsaw-hero-dt.webp" alt="DayTradeToWin" style="width:100%;height:160px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:#f0f4ff;">
+          <p style="font-size:13px;font-weight:700;color:#1e3a5f;margin-bottom:2px;">DayTradeToWin</p>
+          <p style="font-size:11px;color:var(--text-light);">初学者课程体系 + 基础订单流工具</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:2px solid #1e3a5f;box-shadow:var(--shadow-md);">
+        <img src="images/jigsaw-hero-jx.webp" alt="JigsawX" style="width:100%;height:160px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:#f0f4ff;">
+          <p style="font-size:13px;font-weight:700;color:#1e3a5f;margin-bottom:2px;">JigsawX</p>
+          <p style="font-size:11px;color:var(--text-light);">进阶版实盘训练平台，模拟 + 实盘无缝切换</p>
+        </div>
+      </div>
+      <div style="border-radius:12px;overflow:hidden;border:2px solid #1e3a5f;box-shadow:var(--shadow-md);">
+        <img src="images/jigsaw-hero-pmp.webp" alt="PMP" style="width:100%;height:160px;object-fit:cover;display:block;">
+        <div style="padding:12px 16px;background:#f0f4ff;">
+          <p style="font-size:13px;font-weight:700;color:#1e3a5f;margin-bottom:2px;">PMP · Proprietary</p>
+          <p style="font-size:11px;color:var(--text-light);">自营资金项目，优秀学员可获机构资金支持</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jigsaw UI 截图 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-platform1.png" alt="Jigsaw 平台1" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">交易平台界面</p>
+          <p style="font-size:11px;color:var(--text-light);">简洁的订单流 + DOM 集成视图</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-platform2.png" alt="Jigsaw 平台2" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">多窗口布局</p>
+          <p style="font-size:11px;color:var(--text-light);">灵活的工作区配置方案</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-ui1.png" alt="Jigsaw UI1" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">订单流分析</p>
+          <p style="font-size:11px;color:var(--text-light);">Footprint + 成交量聚合</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-ui2.png" alt="Jigsaw UI2" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">实时 DOM</p>
+          <p style="font-size:11px;color:var(--text-light);">深度图 + 大单追踪</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-ui3.png" alt="Jigsaw UI3" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">数据回放</p>
+          <p style="font-size:11px;color:var(--text-light);">历史数据逐帧复盘</p>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);">
+        <img src="images/jigsaw-ui4.png" alt="Jigsaw UI4" style="width:100%;height:150px;object-fit:cover;display:block;">
+        <div style="padding:10px 12px;background:#FAFBFF;">
+          <p style="font-size:12px;font-weight:600;margin-bottom:2px;">学习中心</p>
+          <p style="font-size:11px;color:var(--text-light);">内嵌教程与课程体系</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 横向对比表 ── -->
+  <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-md);">
+    <div style="background:var(--gradient-1);padding:20px 28px;">
+      <h3 style="color:white;font-size:18px;font-weight:700;margin-bottom:4px;">🏆 综合对比 · 德湃的差异化定位</h3>
+      <p style="color:rgba(255,255,255,0.8);font-size:13px;">同样的工具，不同的路——我们走的是别人没有走过的那条</p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;background:white;font-size:13px;">
+        <thead>
+          <tr style="background:#F8FAFC;border-bottom:2px solid var(--border);">
+            <th style="padding:14px 20px;text-align:left;font-weight:700;color:var(--text);width:22%;">维度</th>
+            <th style="padding:14px 20px;text-align:center;font-weight:600;color:var(--text-light);">ATAS</th>
+            <th style="padding:14px 20px;text-align:center;font-weight:600;color:var(--text-light);">Bookmap</th>
+            <th style="padding:14px 20px;text-align:center;font-weight:600;color:var(--text-light);">Jigsaw</th>
+            <th style="padding:14px 20px;text-align:center;font-weight:700;color:var(--primary);background:#EEF2FF;">德湃 DEPAI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 20px;font-weight:600;">中文支持</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 部分</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ 原生中文</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:#FAFBFF;">
+            <td style="padding:12px 20px;font-weight:600;">投教一体化</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">✅ 有</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ 双飞轮</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 20px;font-weight:600;">亚洲市场定价</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 偏高</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 中等</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 中等</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ 亲民定价</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:#FAFBFF;">
+            <td style="padding:12px 20px;font-weight:600;">合规牌照</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 欧盟</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 以色列</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 英国</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ 香港 SFC 9号</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 20px;font-weight:600;">AI 原生能力</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ AI 核心</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;font-weight:600;">社群运营</td>
+            <td style="padding:12px 20px;text-align:center;">❌ 无</td>
+            <td style="padding:12px 20px;text-align:center;">⚠️ 论坛</td>
+            <td style="padding:12px 20px;text-align:center;">✅ 有</td>
+            <td style="padding:12px 20px;text-align:center;background:#EEF2FF;font-weight:700;color:var(--primary);">✅ 海外华人矩阵</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:20px 28px;background:#F0FDF4;border-top:1px solid #BBF7D0;">
+      <p style="font-size:14px;color:#166534;font-weight:500;">
+        💡 <strong>结论：</strong>ATAS/Bookmap 打专业深度，Jigsaw 打教育整合——德湃是唯一同时具备 <strong>中文本地化 × AI 原生 × 投教一体 × 亚洲合规</strong> 的玩家。
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ MARKET DIVIDER ═══════════ -->
 <div class="img-section">
-  <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1920&q=80" alt="全球市场">
+  <img src="images/smb-desk4.jpg" alt="全球市场">
   <div class="overlay">
     <h2>海外市场 · 万亿蓝海</h2>
     <p>全球在线投教与智能投顾市场高速增长，出海窗口期稍纵即逝</p>
@@ -495,7 +862,7 @@
   <div class="pain-grid">
     <div class="pain-col">
       <h3 style="color:#DC2626;">
-        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=100&q=80" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
+        <img src="images/krechendo-market.jpg" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
         出海痛点
       </h3>
       <div class="pain-item red"><strong>牌照合规：</strong>海外金融监管复杂，无牌照运营风险极高（SEC/SFC/FCA）</div>
@@ -506,7 +873,7 @@
     </div>
     <div class="pain-col">
       <h3 style="color:#059669;">
-        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=100&q=80" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
+        <img src="images/deltapex-replay.png" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
         德湃的解法
       </h3>
       <div class="pain-item green"><strong>9 号牌照：</strong>持有香港 SFC 9 号牌，合规框架成熟可复用</div>
@@ -543,25 +910,25 @@
     <div class="coop-side">
       <h3 style="text-align:center;color:var(--primary);font-size:18px;margin-bottom:8px;">🌏 德湃赋能</h3>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="香港金融中心">
+        <img src="images/smb-desk5.jpg" alt="香港金融中心">
         <h4>9 号牌照资源</h4>
         <p>香港 SFC 9 号牌合规框架，为合作方提供海外展业的合规底座</p>
         <span class="tag blue">合规壁垒</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="产品运营">
+        <img src="images/krechendo-room2.jpg" alt="产品运营">
         <h4>海外产品运营</h4>
         <p>适应海外市场基因的产品设计、内容策略和用户运营方法论</p>
         <span class="tag blue">本地化</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80" alt="AI技术">
+        <img src="images/deltapex-heatmap-real.jpg" alt="AI技术">
         <h4>AI 技术团队</h4>
         <p>AI 原生团队，在智能投顾、NLP 分析、自动化运营等方向持续迭代，符合未来发展大趋势</p>
         <span class="tag blue">技术护城河</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80" alt="社交媒体矩阵">
+        <img src="images/krechendo-contest.jpg" alt="社交媒体矩阵">
         <h4>海外渠道网络</h4>
         <p>YouTube / X / TikTok / Telegram 多平台矩阵，KOL 资源与社群体系</p>
         <span class="tag blue">流量基础</span>
@@ -571,7 +938,7 @@
     <div class="coop-center">
       <span class="arrow-lr">⟵</span>
       <div style="width:60px;height:60px;border-radius:50%;background:var(--gradient-1);display:flex;align-items:center;justify-content:center;">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=100&q=80" alt="握手" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <img src="images/smb-team.jpg" alt="握手" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
       </div>
       <span class="arrow-lr">⟶</span>
     </div>
@@ -579,25 +946,25 @@
     <div class="coop-side">
       <h3 style="text-align:center;color:var(--success);font-size:18px;margin-bottom:8px;">🇨🇳 合作方赋能</h3>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="合规牌照">
+        <img src="images/smb-desk2.jpg" alt="合规牌照">
         <h4>国内牌照资源</h4>
         <p>投顾牌照、基金销售牌照等资质，为海外流量端提供合规变现通道</p>
         <span class="tag green">资质互补</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=600&q=80" alt="流量增长">
+        <img src="images/krechendo-room1.jpg" alt="流量增长">
         <h4>流量端赋能</h4>
         <p>国内成熟的投教流量体系、公域投放能力、品牌背书</p>
         <span class="tag green">规模效应</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="资金资源">
+        <img src="images/deltapex-pnl.png" alt="资金资源">
         <h4>资金与资源</h4>
         <p>战略投资、市场推广预算、行业资源对接</p>
         <span class="tag green">加速成长</span>
       </div>
       <div class="coop-item">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="内容师资">
+        <img src="images/smb-teaching.jpg" alt="内容师资">
         <h4>内容与师资</h4>
         <p>成熟的投教内容体系、讲师资源，可快速本地化适配海外</p>
         <span class="tag green">内容壁垒</span>
@@ -612,7 +979,7 @@
   <h2 class="section-title">逆势增长 · 已验证的模型</h2>
 
   <div class="results-banner">
-    <img src="https://images.unsplash.com/photo-1504607798333-52a30db54a5d?w=1920&q=80" alt="增长曲线">
+    <img src="images/smb-desk3.jpg" alt="增长曲线">
     <div class="overlay">
       <h3>在最严苛的条件下，我们依然跑通了</h3>
       <p>公域被封杀、未进行大规模投流、仅依靠矩阵账号和社群裂变——在小众垂直领域逆势拿到增长。</p>
@@ -622,21 +989,21 @@
 
   <div class="icon-cards">
     <div class="icon-card">
-      <img src="https://images.unsplash.com/photo-1586953208270-767889fa9b0e?w=600&q=80" alt="零投流">
+      <img src="images/deltapex-pnl.png" alt="零投流">
       <div class="body">
         <h3>零投流</h3>
         <p>几乎没有付费广告投放，全靠内容驱动自然增长</p>
       </div>
     </div>
     <div class="icon-card">
-      <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="公域封杀">
+      <img src="images/krechendo-market.jpg" alt="公域封杀">
       <div class="body">
         <h3>公域封杀</h3>
         <p>主流平台限流封号，仅靠矩阵账号持续产出</p>
       </div>
     </div>
     <div class="icon-card">
-      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="垂直赛道">
+      <img src="images/deltapex-heatmap-real.jpg" alt="垂直赛道">
       <div class="body">
         <h3>垂直赛道</h3>
         <p>订单流 + 智能投顾，极小众但高价值赛道</p>
