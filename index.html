@@ -181,6 +181,70 @@
   .pain-item.red { background: #FEF2F2; color: #991B1B; border-left: 3px solid #EF4444; }
   .pain-item.green { background: #F0FDF4; color: #166534; border-left: 3px solid #22C55E; }
 
+  /* ─── KOL CASES ─── */
+  .kol-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0;
+  }
+  .kol-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .kol-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .kol-card .kol-thumb {
+    width: 100%; height: 200px; object-fit: cover; object-position: top; display: block;
+    border-bottom: 1px solid var(--border);
+  }
+  .kol-card .kol-body { padding: 20px; }
+  .kol-card .kol-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .kol-card .kol-flag { font-size: 22px; }
+  .kol-card .kol-name { font-weight: 700; font-size: 17px; }
+  .kol-card .kol-sub { font-size: 13px; color: var(--text-light); }
+  .kol-card .kol-stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .kol-card .kol-stat-tag {
+    font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+    background: #EEF2FF; color: var(--primary);
+  }
+  .kol-card .kol-stat-tag.amber { background: #FEF3C7; color: #92400E; }
+  .kol-card .kol-stat-tag.green { background: #D1FAE5; color: #065F46; }
+  .kol-card .kol-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+  .kol-card .kol-model {
+    margin-top: 14px; padding: 12px; background: #F8FAFC; border-radius: 10px;
+    font-size: 13px; color: var(--text);
+  }
+  .kol-card .kol-model strong { color: var(--primary); }
+
+  /* ─── FUNNEL PATH ─── */
+  .funnel-path {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 0; margin: 40px 0; background: white;
+    border-radius: 20px; border: 1px solid var(--border); padding: 32px 24px;
+  }
+  .funnel-step {
+    text-align: center; padding: 20px 24px; min-width: 130px;
+  }
+  .funnel-step .fs-icon { font-size: 32px; margin-bottom: 8px; }
+  .funnel-step .fs-title { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+  .funnel-step .fs-desc { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .funnel-arrow { font-size: 24px; color: var(--primary); margin: 0 4px; flex-shrink: 0; }
+
+  /* ─── MARKET TARGET TABLE ─── */
+  .market-target-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .market-target-table th { background: var(--gradient-1); color: white; padding: 12px 16px; text-align: left; font-weight: 600; }
+  .market-target-table th:first-child { border-radius: 10px 0 0 0; }
+  .market-target-table th:last-child { border-radius: 0 10px 0 0; }
+  .market-target-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .market-target-table tr:nth-child(even) td { background: #F8FAFC; }
+  .market-target-table .priority-a { color: #059669; font-weight: 700; }
+  .market-target-table .priority-b { color: #D97706; font-weight: 700; }
+  .market-target-table .priority-c { color: #6366F1; font-weight: 700; }
+
+  @media (max-width: 768px) {
+    .kol-grid { grid-template-columns: 1fr; }
+    .funnel-path { flex-direction: column; }
+    .funnel-arrow { transform: rotate(90deg); }
+  }
+
   /* ─── COOPERATION ─── */
   .coop-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: start; margin: 48px 0; }
   .coop-side { display: flex; flex-direction: column; gap: 16px; }
@@ -886,65 +950,280 @@
 <!-- ═══════════════════ PART 2 ═══════════════════ -->
 <section id="market">
   <span class="section-label amber">PART 2</span>
-  <h2 class="section-title">海外市场 · 机遇与痛点</h2>
-  <p class="section-desc">全球投教市场高速增长，但国内玩家出海面临多重挑战。</p>
+  <h2 class="section-title">海外市场 · 已跑通的蓝海</h2>
+  <p class="section-desc">不是"可能有机会"——海外已有人赚到了，路径清晰，我们要做的是照着打。</p>
 
+  <!-- ① 市场规模数据 -->
   <div class="stats">
     <div class="stat">
-      <div class="num">$12B+</div>
-      <div class="label">全球在线投教市场规模（预估）</div>
+      <div class="num">$85–143亿</div>
+      <div class="label">2024 年全球智能投顾市场规模（多机构口径区间）</div>
     </div>
     <div class="stat">
-      <div class="num">35%</div>
-      <div class="label">CAGR 年复合增长率</div>
+      <div class="num">30%+</div>
+      <div class="label">CAGR 年复合增长率，亚太增速更快</div>
     </div>
     <div class="stat">
-      <div class="num">6000万+</div>
-      <div class="label">海外华人投资者群体</div>
+      <div class="num">340万张/日</div>
+      <div class="label">CME 微型权益指数期货 ADV（2025 Q2，同比 +43%）</div>
     </div>
     <div class="stat">
       <div class="num">< 5%</div>
-      <div class="label">合规出海的国内投教机构占比</div>
+      <div class="label">国内合规出海投教机构占比，先发优势窗口未关</div>
     </div>
   </div>
 
+  <!-- ② 海外已跑通的 KOL 模式 -->
+  <h3 style="font-size:22px;font-weight:700;margin:48px 0 8px;">📡 海外投教 KOL · 真实跑通案例</h3>
+  <p style="color:var(--text-light);font-size:15px;margin-bottom:28px;">这些人在没有国内生态加持的情况下，靠内容 + 社群 + 工具，把投教做成了可持续的大生意。</p>
+
+  <div class="kol-grid">
+
+    <!-- Rayner Teo -->
+    <div class="kol-card">
+      <img class="kol-thumb" src="images/kol-rayner-teo.jpg" alt="Rayner Teo">
+      <div class="kol-body">
+        <div class="kol-meta">
+          <span class="kol-flag">🇸🇬</span>
+          <div>
+            <div class="kol-name">Rayner Teo</div>
+            <div class="kol-sub">TradingwithRayner · 新加坡</div>
+          </div>
+        </div>
+        <div class="kol-stats">
+          <span class="kol-stat-tag">200万+ 社媒粉丝</span>
+          <span class="kol-stat-tag amber">新加坡最大交易 KOL</span>
+          <span class="kol-stat-tag green">独立运营，零机构背书</span>
+        </div>
+        <p class="kol-desc">从零开始，用系统化交易教育内容在 YouTube / Blog 积累百万级受众。主打"去噪声、讲本质"，不炒作短线暴富，建立了极高用户信任度。</p>
+        <div class="kol-model">
+          <strong>💰 商业模型：</strong>免费内容引流 → 付费课程（Candlestick / Price Action / Systems Trading）→ 会员社群 → 高价一对一辅导。无需牌照，纯内容变现。
+        </div>
+      </div>
+    </div>
+
+    <!-- SMB Capital -->
+    <div class="kol-card">
+      <img class="kol-thumb" src="images/kol-smb.jpg" alt="SMB Capital">
+      <div class="kol-body">
+        <div class="kol-meta">
+          <span class="kol-flag">🇺🇸</span>
+          <div>
+            <div class="kol-name">SMB Capital</div>
+            <div class="kol-sub">Prop 自营 + 投教双轨 · 纽约</div>
+          </div>
+        </div>
+        <div class="kol-stats">
+          <span class="kol-stat-tag">100万+ YouTube 订阅</span>
+          <span class="kol-stat-tag amber">每年训练数千交易者</span>
+          <span class="kol-stat-tag green">20年历史，自营+教育</span>
+        </div>
+        <p class="kol-desc">自营交易公司出身，用 YouTube 免费内容持续曝光，将教育作为核心业务线单独做大。覆盖股票/期货/期权多品种，课程价格从 $3,000 到 $20,000 不等。</p>
+        <div class="kol-model">
+          <strong>💰 商业模型：</strong>自营交易（真实 P&L 建立信任）→ YouTube 免费内容（日更）→ SMB Edge 训练营 $3K–$20K → 专项课程 + Mentorship → 精英 Prop 招募。
+        </div>
+      </div>
+    </div>
+
+    <!-- Jigsaw Trading -->
+    <div class="kol-card">
+      <img class="kol-thumb" src="images/kol-jigsaw.jpg" alt="Jigsaw Trading">
+      <div class="kol-body">
+        <div class="kol-meta">
+          <span class="kol-flag">🇬🇧</span>
+          <div>
+            <div class="kol-name">Jigsaw Trading</div>
+            <div class="kol-sub">订单流软件 + 教育一体 · 英国</div>
+          </div>
+        </div>
+        <div class="kol-stats">
+          <span class="kol-stat-tag">订单流工具权威</span>
+          <span class="kol-stat-tag amber">23% 用户全职交易</span>
+          <span class="kol-stat-tag green">软件 + 教育双订阅</span>
+        </div>
+        <p class="kol-desc">将订单流/DOM工具与系统化交易教育深度绑定——买工具送课程，买课程用工具，形成强粘性飞轮。官网明确标注"23% of our users trade full-time"作为社会证明。</p>
+        <div class="kol-model">
+          <strong>💰 商业模型：</strong>Live Trading 订阅 $50/月 或 $500/年 → daytradr 一次性授权 $579–$1,979 → 与 CQG/Rithmic 数据源联合 → 社区教育课程 → 全职交易者社群。
+        </div>
+      </div>
+    </div>
+
+    <!-- Axia Futures -->
+    <div class="kol-card">
+      <img class="kol-thumb" src="images/kol-axia.jpg" alt="Axia Futures">
+      <div class="kol-body">
+        <div class="kol-meta">
+          <span class="kol-flag">🇬🇧</span>
+          <div>
+            <div class="kol-name">Axia Futures</div>
+            <div class="kol-sub">精英期货培训 · 伦敦金融城</div>
+          </div>
+        </div>
+        <div class="kol-stats">
+          <span class="kol-stat-tag">FCT Europe 自营认证</span>
+          <span class="kol-stat-tag amber">Bloomberg 专访背书</span>
+          <span class="kol-stat-tag green">2016 年创立，10年历史</span>
+        </div>
+        <p class="kol-desc">由一批伦敦 Prop 圈顶级交易员创立，专注期货订单流交易。在伦敦金融城黄金地段设立交易室，以真实 Prop 环境作为教学背书，高价精英路线。Bloomberg 曾专访其核心交易员。</p>
+        <div class="kol-model">
+          <strong>💰 商业模型：</strong>4 周交易员训练营（旗舰项目）→ 3 个月 X-ponential 个人辅导计划 → 优秀学员直通 Prop 资金账户 → 伦敦真实交易室沉浸式体验 → 线上订阅课程。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bookmap 独立展示 -->
+  <div style="background:white;border-radius:16px;border:1px solid var(--border);overflow:hidden;margin:8px 0 40px;display:grid;grid-template-columns:1fr 1.5fr;align-items:center;">
+    <img src="images/kol-bookmap.jpg" alt="Bookmap Education" style="width:100%;height:240px;object-fit:cover;object-position:top;">
+    <div style="padding:28px 32px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="font-size:22px;">🇨🇾</span>
+        <div>
+          <div style="font-weight:700;font-size:17px;">Bookmap</div>
+          <div style="font-size:13px;color:var(--text-light);">热力图订单流平台 · 塞浦路斯（全球运营）</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <span class="kol-stat-tag" style="font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;background:#EEF2FF;color:var(--primary);">$19–$99/月订阅</span>
+        <span class="kol-stat-tag amber" style="font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;background:#FEF3C7;color:#92400E;">$990–$1990 终身授权</span>
+        <span class="kol-stat-tag green" style="font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;background:#D1FAE5;color:#065F46;">Partner Educators 生态</span>
+      </div>
+      <p style="font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:12px;">将每日直播、免费网络研讨会、Discord 社区、课程视频、合作教育者（Partner Educators）全部打包进产品矩阵——教育不是附加品，<strong>是留存飞轮的核心引擎</strong>。</p>
+      <div style="padding:12px;background:#F8FAFC;border-radius:10px;font-size:13px;">
+        <strong style="color:var(--primary);">💰 商业模型：</strong>免费版本降低入门门槛 → 付费档位 ($19/$49/$99/月) 按功能解锁 → 数据订阅另收费（dxFeed/Rithmic）→ 终身授权一次性变现 → KOL 联盟教育 → Discord 社群粘性。
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ 出海成功路径图 -->
+  <h3 style="font-size:22px;font-weight:700;margin:48px 0 8px;">🗺️ 海外投教 KOL 成功路径</h3>
+  <p style="color:var(--text-light);font-size:15px;margin-bottom:28px;">所有成功案例都遵循同一飞轮，起点是<strong>免费内容</strong>，终点是<strong>可持续的多层变现</strong>。</p>
+
+  <div class="funnel-path">
+    <div class="funnel-step">
+      <div class="fs-icon">📹</div>
+      <div class="fs-title">免费内容引流</div>
+      <div class="fs-desc">YouTube / TikTok / X<br>建立专业度 & 信任感<br>日更+干货，不推销</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">💬</div>
+      <div class="fs-title">社群沉淀</div>
+      <div class="fs-desc">Discord / Telegram<br>筛选高意向用户<br>Free → Premium 分层</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">📚</div>
+      <div class="fs-title">付费课程</div>
+      <div class="fs-desc">$200–$2,000 课程<br>录播 + 直播 + 答疑<br>结营证书加持</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">🛠️</div>
+      <div class="fs-title">工具订阅</div>
+      <div class="fs-desc">软件 $50–$200/月<br>数据源捆绑销售<br>工具创造使用粘性</div>
+    </div>
+    <div class="funnel-arrow">→</div>
+    <div class="funnel-step">
+      <div class="fs-icon">🏆</div>
+      <div class="fs-title">高价精英项目</div>
+      <div class="fs-desc">训练营 $3K–$20K<br>1对1 Mentorship<br>Prop 资金账户</div>
+    </div>
+  </div>
+
+  <!-- ④ 目标市场优先级 -->
+  <h3 style="font-size:22px;font-weight:700;margin:48px 0 8px;">🌏 出海目标市场优先级</h3>
+  <p style="color:var(--text-light);font-size:15px;margin-bottom:20px;">综合监管确定性、牌照复杂度、市场增速、华人渠道可得性排序：</p>
+
+  <table class="market-target-table">
+    <thead>
+      <tr>
+        <th>优先级</th>
+        <th>市场</th>
+        <th>核心机遇</th>
+        <th>进入方式</th>
+        <th>德湃优势</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="priority-a">🟢 A 类</td>
+        <td><strong>新加坡 / 马来西亚</strong></td>
+        <td>监管框架清晰，数字投顾友好，华人基础大，MAS/SC 沙盒机制</td>
+        <td>合作持牌方 / 白标快速上线 → 验证后独立申牌</td>
+        <td>香港 SFC 9 号牌可背书；已有东南亚华人社群渗透</td>
+      </tr>
+      <tr>
+        <td class="priority-b">🟡 B 类</td>
+        <td><strong>阿联酋（ADGM）/ 迪拜</strong></td>
+        <td>算法治理要求硬但规则已明确，中东金融科技政策窗口期</td>
+        <td>本地持牌合作 + 联合产品，技术审计准备充分再进入</td>
+        <td>AI 原生系统 + 可解释层，天然满足算法治理条款</td>
+      </tr>
+      <tr>
+        <td class="priority-b">🟡 B 类</td>
+        <td><strong>澳大利亚</strong></td>
+        <td>ASIC 监管透明，零售交易教育市场成熟，英语市场直接可用</td>
+        <td>与本地持牌券商合作，内容合规化后再推独立服务</td>
+        <td>英文内容体系已有 + 技术平台成熟可直接输出</td>
+      </tr>
+      <tr>
+        <td class="priority-c">🔵 C 类</td>
+        <td><strong>北美（美国/加拿大）</strong></td>
+        <td>最大零售交易市场，微型合约+期权零售增速显著</td>
+        <td>先做 B2B2C 工具层 / 与持牌机构合作，避免早期独立持牌</td>
+        <td>订单流工具 + AI 差异化，可先以 SaaS 工具模式切入</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ⑤ 痛点 & 解法 -->
+  <h3 style="font-size:22px;font-weight:700;margin:48px 0 8px;">⚠️ 出海踩坑 & 德湃的解法</h3>
   <div class="pain-grid">
     <div class="pain-col">
-      <h3 style="color:#DC2626;">
-        <img src="images/krechendo-market.jpg" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
-        出海痛点
-      </h3>
-      <div class="pain-item red"><strong>牌照合规：</strong>海外金融监管复杂，无牌照运营风险极高（SEC/SFC/FCA）</div>
-      <div class="pain-item red"><strong>本地化缺失：</strong>直接"汉化"产品出海，用户体验差、信任度低</div>
-      <div class="pain-item red"><strong>支付通道：</strong>跨境支付结算困难，法币/加密混合场景处理复杂</div>
-      <div class="pain-item red"><strong>流量获取：</strong>国内增长玩法（微信生态）海外失效，获客成本高</div>
-      <div class="pain-item red"><strong>文化差异：</strong>投教内容、销售话术、社群运营方式需完全重构</div>
+      <h3 style="color:#DC2626;">❌ 国内机构出海常见踩坑</h3>
+      <div class="pain-item red"><strong>牌照缺失：</strong>无持牌直接运营，被 SEC/FCA/ASIC 查处，已有前车之鉴</div>
+      <div class="pain-item red"><strong>国内模式照搬：</strong>把微信群/朋友圈打法直接翻译成英文，文化不符，信任度低</div>
+      <div class="pain-item red"><strong>流量焦虑：</strong>急于在 Google/Meta 投流，不积累有机内容，ROI 极差</div>
+      <div class="pain-item red"><strong>数据成本盲区：</strong>忽视交易所实时数据授权费用，用户实际成本超预期流失</div>
+      <div class="pain-item red"><strong>合规内容踩线：</strong>KOL 话术未做当地免责设计，"分析变建议"直接触发监管</div>
     </div>
     <div class="pain-col">
-      <h3 style="color:#059669;">
-        <img src="images/deltapex-replay.png" alt="" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">
-        德湃的解法
-      </h3>
-      <div class="pain-item green"><strong>9 号牌照：</strong>持有香港 SFC 9 号牌，合规框架成熟可复用</div>
-      <div class="pain-item green"><strong>海外基因：</strong>团队本身在海外运营，产品从第一天就为海外设计</div>
-      <div class="pain-item green"><strong>多通道支付：</strong>已打通 Stripe/加密支付等多元收款方案</div>
-      <div class="pain-item green"><strong>矩阵打法：</strong>YouTube/X/TikTok/Telegram 多平台内容矩阵</div>
-      <div class="pain-item green"><strong>社群运营：</strong>深耕海外华人 + 英文社群，懂用户懂文化</div>
+      <h3 style="color:#059669;">✅ 德湃的系统解法</h3>
+      <div class="pain-item green"><strong>9 号牌照底座：</strong>香港 SFC 9 号牌合规框架，可复用至新加坡/马来西亚合作路径</div>
+      <div class="pain-item green"><strong>海外原生基因：</strong>产品从第一天就为海外用户设计，非汉化翻译</div>
+      <div class="pain-item green"><strong>内容矩阵在手：</strong>YouTube / X / TikTok / Telegram 多平台已有有机积累</div>
+      <div class="pain-item green"><strong>数据成本透明化：</strong>软件订阅 + 数据套餐打包展示，降低用户认知摩擦</div>
+      <div class="pain-item green"><strong>AI 可解释层：</strong>AI 只做"复盘教练+信号解释+风险护栏"，不踩"投资建议"红线</div>
     </div>
+  </div>
+
+  <div style="margin-top:32px;padding:24px 28px;background:linear-gradient(135deg,#EEF2FF,#F0FDF4);border-radius:16px;border:1px solid #C7D2FE;">
+    <p style="font-size:15px;color:#1E293B;font-weight:500;line-height:1.8;">
+      🔑 <strong>核心结论：</strong>海外投教市场已被 Rayner Teo、SMB Capital、Jigsaw、Axia 等人验证——<strong>内容 × 工具 × 社群的飞轮在亚太同样有效</strong>。
+      先发者已经在跑，但亚洲合规 × AI 原生 × 中文内容的组合还没有人做到位。这就是窗口。
+    </p>
   </div>
 
   <div class="chips" style="margin-top:24px;">
+    <a href="https://www.tradingwithrayner.com" class="chip" target="_blank">
+      <img src="https://www.google.com/s2/favicons?domain=tradingwithrayner.com&sz=32" alt=""> Rayner Teo
+    </a>
+    <a href="https://smbcap.com" class="chip" target="_blank">
+      <img src="https://www.google.com/s2/favicons?domain=smbcap.com&sz=32" alt=""> SMB Capital
+    </a>
+    <a href="https://www.jigsawtrading.com" class="chip" target="_blank">
+      <img src="https://www.google.com/s2/favicons?domain=jigsawtrading.com&sz=32" alt=""> Jigsaw Trading
+    </a>
+    <a href="https://axiafutures.com" class="chip" target="_blank">
+      <img src="https://www.google.com/s2/favicons?domain=axiafutures.com&sz=32" alt=""> Axia Futures
+    </a>
+    <a href="https://bookmap.com" class="chip" target="_blank">
+      <img src="https://www.google.com/s2/favicons?domain=bookmap.com&sz=32" alt=""> Bookmap
+    </a>
     <a href="https://www.sfc.hk" class="chip" target="_blank">
-      <img src="https://www.google.com/s2/favicons?domain=sfc.hk&sz=32" alt=""> 香港证监会 SFC
-    </a>
-    <a href="https://www.sec.gov" class="chip" target="_blank">
-      <img src="https://www.google.com/s2/favicons?domain=sec.gov&sz=32" alt=""> SEC 官网
-    </a>
-    <a href="https://www.fca.org.uk" class="chip" target="_blank">
-      <img src="https://www.google.com/s2/favicons?domain=fca.org.uk&sz=32" alt=""> FCA 官网
-    </a>
-    <a href="https://stripe.com" class="chip" target="_blank">
-      <img src="https://www.google.com/s2/favicons?domain=stripe.com&sz=32" alt=""> Stripe
+      <img src="https://www.google.com/s2/favicons?domain=sfc.hk&sz=32" alt=""> 香港 SFC
     </a>
   </div>
 </section>
