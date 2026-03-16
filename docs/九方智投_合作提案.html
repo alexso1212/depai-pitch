@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德湃 × 九方智投 · 合作提案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  :root {
+    --bg: #0a0e1a; --surface: #111827; --surface2: #1a2235; --surface3: #1f2a40;
+    --border: #2a3654; --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b;
+    --accent: #38bdf8; --accent2: #818cf8; --accent3: #a78bfa;
+    --green: #34d399; --yellow: #fbbf24; --red: #f87171; --orange: #fb923c;
+    --pink: #f472b6; --cyan: #22d3ee;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans SC','Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+  body::before { content:''; position:fixed; top:-50%; left:-50%; width:200%; height:200%;
+    background: radial-gradient(ellipse at 20% 50%, rgba(56,189,248,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(129,140,248,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(167,139,250,0.03) 0%, transparent 50%);
+    z-index:-1; }
+  .header { text-align:center; padding:56px 24px 32px; }
+  .header h1 { font-size:2.4rem; font-weight:800;
+    background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    margin-bottom:14px; letter-spacing:-0.02em; }
+  .header .subtitle { color:var(--text-dim); font-size:1rem; font-weight:300; max-width:600px; margin:0 auto 10px; }
+  .header .meta { color:var(--text-muted); font-size:0.78rem; }
+  .nav { display:flex; justify-content:center; gap:8px; padding:16px 24px; flex-wrap:wrap;
+    position:sticky; top:0; z-index:100; background:rgba(10,14,26,0.88);
+    backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+  .nav-btn { padding:7px 16px; border-radius:20px; border:1px solid var(--border);
+    background:var(--surface); color:var(--text-dim); font-size:0.82rem;
+    cursor:pointer; transition:all 0.3s; font-family:inherit; }
+  .nav-btn:hover, .nav-btn.active {
+    background:linear-gradient(135deg,rgba(56,189,248,0.15),rgba(129,140,248,0.15));
+    border-color:var(--accent); color:var(--accent); }
+  .container { max-width:1100px; margin:0 auto; padding:28px 24px; }
+  .section { display:none; animation:fadeIn 0.4s ease; }
+  .section.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .section-header { margin-bottom:28px; }
+  .section-header h2 { font-size:1.7rem; font-weight:700;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; }
+  .section-header .tagline { color:var(--text-dim); font-size:0.95rem; font-style:italic; }
+  .content-block { background:var(--surface); border:1px solid var(--border);
+    border-radius:14px; padding:22px 26px; margin-bottom:24px;
+    line-height:1.8; color:var(--text-dim); font-size:0.93rem; }
+  .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-top:20px; }
+  .card { background:var(--surface2); border:1px solid var(--border); border-radius:12px;
+    padding:18px; transition:all 0.3s; cursor:default; }
+  .card:hover { border-color:var(--accent); transform:translateY(-3px);
+    box-shadow:0 8px 30px rgba(56,189,248,0.1); }
+  .card .icon { font-size:1.6rem; margin-bottom:10px; }
+  .card .card-title { font-size:0.9rem; font-weight:600; color:var(--text); margin-bottom:6px; }
+  .card .card-desc { font-size:0.8rem; color:var(--text-dim); line-height:1.6; }
+
+  /* Cooperation section special 3-col layout */
+  .coop-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; margin-top:20px; }
+  .coop-card { background:var(--surface2); border:1px solid var(--border); border-radius:14px; padding:22px; transition:all 0.3s; }
+  .coop-card:hover { border-color:var(--accent2); transform:translateY(-4px); box-shadow:0 10px 40px rgba(129,140,248,0.12); }
+  .coop-card .coop-label { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.72rem; font-weight:700;
+    background:linear-gradient(135deg,rgba(56,189,248,0.2),rgba(129,140,248,0.2));
+    color:var(--accent); border:1px solid rgba(56,189,248,0.3); margin-bottom:12px; }
+  .coop-card .coop-icon { font-size:2rem; margin-bottom:10px; }
+  .coop-card .coop-title { font-size:1rem; font-weight:700; color:var(--text); margin-bottom:8px; }
+  .coop-card .coop-desc { font-size:0.82rem; color:var(--text-dim); margin-bottom:14px; }
+  .coop-detail { background:var(--surface3); border-radius:8px; padding:12px 14px; }
+  .coop-detail div { display:flex; gap:8px; margin-bottom:6px; font-size:0.78rem; }
+  .coop-detail .dk { color:var(--accent); font-weight:600; min-width:60px; flex-shrink:0; }
+  .coop-detail .dv { color:var(--text-dim); }
+
+  /* Steps */
+  .steps { display:flex; gap:0; margin:20px 0; flex-wrap:wrap; }
+  .step { flex:1; min-width:160px; position:relative; padding:16px 20px;
+    background:var(--surface2); border:1px solid var(--border); }
+  .step:first-child { border-radius:10px 0 0 10px; }
+  .step:last-child { border-radius:0 10px 10px 0; }
+  .step:not(:last-child)::after { content:'→'; position:absolute; right:-14px; top:50%;
+    transform:translateY(-50%); color:var(--accent); font-size:1.2rem; z-index:1; }
+  .step .step-num { font-size:0.7rem; color:var(--accent); font-weight:700; margin-bottom:4px; }
+  .step .step-text { font-size:0.82rem; color:var(--text-dim); }
+
+  /* Highlight box */
+  .highlight { background:linear-gradient(135deg,rgba(56,189,248,0.08),rgba(129,140,248,0.08));
+    border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:18px 22px;
+    margin:18px 0; font-size:0.88rem; color:var(--text-dim); line-height:1.8; }
+  .highlight strong { color:var(--accent); }
+
+  footer { text-align:center; padding:40px 24px 30px; color:var(--text-muted); font-size:0.8rem; border-top:1px solid var(--border); margin-top:40px; }
+  footer span { background:linear-gradient(135deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600; }
+
+  @media(max-width:600px) {
+    .header h1 { font-size:1.6rem; }
+    .nav-btn { font-size:0.75rem; padding:6px 12px; }
+    .steps { flex-direction:column; }
+    .step { border-radius:10px !important; margin-bottom:8px; }
+    .step::after { display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>德湃 × 九方智投 · 合作提案</h1>
+  <p class="subtitle">订单流交易工具 × 6300万粉丝流量矩阵 · 强强联合，共赢出海</p>
+  <p class="meta">2026年3月 · v1.0</p>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" data-sec="about">🏛️ 德湃是谁</button>
+  <button class="nav-btn" data-sec="software">🛠️ 订单流软件</button>
+  <button class="nav-btn" data-sec="education">📚 投资者教育</button>
+  <button class="nav-btn" data-sec="partner">🌏 为何合作出海</button>
+  <button class="nav-btn" data-sec="coop">🤝 合作方案</button>
+  <button class="nav-btn" data-sec="advantages">⚡ 核心优势</button>
+  <button class="nav-btn" data-sec="needs">🎯 我们的需求</button>
+</nav>
+
+<div class="container">
+
+  <!-- 德湃是谁 -->
+  <div class="section active" id="sec-about">
+    <div class="section-header">
+      <h2>德湃是谁</h2>
+      <p class="tagline">中国订单流交易的开拓者，用AI重新定义交易教育</p>
+    </div>
+    <div class="content-block">
+      德湃（Deltapex）是中国领先的订单流交易教育与金融科技服务商，总部位于深圳前海天璟。我们的核心使命是用AI赋能交易教育，打造中国版 TradingView + AI Coaching。<br><br>
+      德湃不是一家PPT公司——<strong style="color:var(--accent)">我们有真实的牌照、真实的产品、真实的用户</strong>。香港实体持有9号牌照（资产管理），具备合规出海的法律基础；旗下德榕正源持有正规培训教育资质，拥有持证讲师团队。16人精简团队，全员AI协同，人效比是传统金融科技公司的3-5倍。创始人Alexso深耕订单流交易多年，带领团队拿下ATAS大中华区独家运营权，这是我们最硬的护城河。
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="icon">🏛️</div><div class="card-title">香港9号牌照</div><div class="card-desc">资产管理牌照，合规出海的法律基石</div></div>
+      <div class="card"><div class="icon">📜</div><div class="card-title">德榕正源教育资质</div><div class="card-desc">正规培训资质，持证讲师团队，合规投教</div></div>
+      <div class="card"><div class="icon">🔐</div><div class="card-title">ATAS大中华区独家</div><div class="card-desc">全球顶级订单流平台，独家运营权在手</div></div>
+      <div class="card"><div class="icon">🤖</div><div class="card-title">16人AI原生团队</div><div class="card-desc">全员AI协同，人效比行业领先3-5倍</div></div>
+      <div class="card"><div class="icon">🏢</div><div class="card-title">深圳前海总部</div><div class="card-desc">扎根大湾区，辐射全国及海外市场</div></div>
+    </div>
+  </div>
+
+  <!-- 订单流软件 -->
+  <div class="section" id="sec-software">
+    <div class="section-header">
+      <h2>核心产品一 · 订单流软件</h2>
+      <p class="tagline">看穿K线背后的真相，让机构级工具飞入寻常散户家</p>
+    </div>
+    <div class="content-block">
+      订单流分析是机构交易员的核心武器，但在中国市场一直缺乏好用的本土化工具。德湃改变了这一切。<br><br>
+      我们拥有拉脱维亚订单流平台 ATAS 的大中华区独家运营权——全球口碑最好的订单流分析软件之一。德湃版本做了深度本土化：<strong style="color:var(--accent)">中文原生界面，比ATAS/Bookmap更亲民</strong>；已接入上期所、大商所、郑商所CTP接口，覆盖国内期货全品种Level 2数据。定价亲民：基础版¥99-149/月，专业版¥299-399/月。
+    </div>
+    <div class="highlight">
+      <strong>「逃顶大师」</strong> — 结合订单流机制的交易模拟游戏，用真实CME历史数据，四象限界面让用户在游戏中掌握订单流精髓。学员学完理论，直接用游戏实战练习，留存率和续费率显著提升。
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="icon">👣</div><div class="card-title">Footprint足迹图</div><div class="card-desc">每根K线内部的买卖博弈一目了然</div></div>
+      <div class="card"><div class="icon">📊</div><div class="card-title">DOM盘口分析</div><div class="card-desc">实时挂单深度，洞察大单异动</div></div>
+      <div class="card"><div class="icon">🔥</div><div class="card-title">热图可视化</div><div class="card-desc">价格-时间-成交量三维立体呈现</div></div>
+      <div class="card"><div class="icon">🇨🇳</div><div class="card-title">中文原生界面</div><div class="card-desc">告别全英文界面，本土用户零门槛上手</div></div>
+      <div class="card"><div class="icon">🎮</div><div class="card-title">逃顶大师游戏</div><div class="card-desc">真实CME数据，游戏化学习订单流</div></div>
+    </div>
+  </div>
+
+  <!-- 投资者教育 -->
+  <div class="section" id="sec-education">
+    <div class="section-header">
+      <h2>核心产品二 · 投资者教育</h2>
+      <p class="tagline">不只是卖软件，更要教会用户赚钱的方法论</p>
+    </div>
+    <div class="content-block">
+      好工具没有好方法论，等于废铁。德湃的差异化在于：<strong style="color:var(--accent)">我们不只卖软件，更建立了一套完整的投资者教育体系</strong>。<br><br>
+      德榕正源持有正规培训教育资质，讲师团队全部持证上岗，这在行业里凤毛麟角。培训内容覆盖：订单流交易方法论、CME美指期货（NQ/ES）实盘教学、Footprint Chart深度解读、DOM交易实战。<br><br>
+      更重要的是，我们开发了 <strong style="color:var(--accent2)">AI Agent课程助手</strong>——它整合了全部课程内容，用户提问后基于课程原文回答并跳转到对应时间点，还支持自测功能。这套「工具+教育」双飞轮模式，是我们用户粘性和续费率远超行业的核心原因。
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="icon">✅</div><div class="card-title">正规教育资质</div><div class="card-desc">德榕正源持证经营，合规投教</div></div>
+      <div class="card"><div class="icon">👨‍🏫</div><div class="card-title">持证讲师团队</div><div class="card-desc">全员持证，专业背景，实盘经验</div></div>
+      <div class="card"><div class="icon">🤖</div><div class="card-title">AI Agent助手</div><div class="card-desc">24小时在线，基于课程原文精准答疑</div></div>
+      <div class="card"><div class="icon">💹</div><div class="card-title">实盘教学内容</div><div class="card-desc">CME美指期货NQ/ES，真金白银实战</div></div>
+      <div class="card"><div class="icon">📈</div><div class="card-title">自测与进阶</div><div class="card-desc">AI辅助自测，个性化学习路径</div></div>
+    </div>
+  </div>
+
+  <!-- 为何合作出海 -->
+  <div class="section" id="sec-partner">
+    <div class="section-header">
+      <h2>为什么跟九方智投合作能打海外</h2>
+      <p class="tagline">6300万粉丝 × 订单流技术 = 中国金融科技出海的超级组合</p>
+    </div>
+    <div class="content-block">
+      九方智投拥有994个社媒账号、6300万粉丝，这是中国金融教育领域最强大的流量矩阵。德湃拥有订单流核心技术、香港合规牌照、AI原生团队。两者结合，能产生 <strong style="color:var(--accent)">1+1&gt;10的化学反应</strong>。<br><br>
+      核心逻辑：用九方的流量验证产品，用德湃的牌照打通合规，用AI能力降低本地化成本。这不是画饼，是一条可执行的路径。
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">第一步</div><div class="step-text">国内嵌入验证<br>快速获取用户反馈</div></div>
+      <div class="step"><div class="step-num">第二步</div><div class="step-text">香港合规转场<br>9号牌照产品合规化</div></div>
+      <div class="step"><div class="step-num">第三步</div><div class="step-text">新马华人市场<br>语言无障碍，需求旺盛</div></div>
+      <div class="step"><div class="step-num">第四步</div><div class="step-text">UAE中东市场<br>高净值人群，接受度高</div></div>
+    </div>
+    <div class="cards-grid" style="margin-top:20px">
+      <div class="card"><div class="icon">📱</div><div class="card-title">6300万粉丝矩阵</div><div class="card-desc">九方994个账号，国内验证最强流量池</div></div>
+      <div class="card"><div class="icon">🛂</div><div class="card-title">香港合规跳板</div><div class="card-desc">9号牌照在手，出海法律基础已就绪</div></div>
+      <div class="card"><div class="icon">🌏</div><div class="card-title">东南亚华人市场</div><div class="card-desc">新马华人群体，语言零障碍，需求旺盛</div></div>
+      <div class="card"><div class="icon">🕌</div><div class="card-title">中东高净值市场</div><div class="card-desc">UAE金融中心，对中国金融科技接受度高</div></div>
+      <div class="card"><div class="icon">🌐</div><div class="card-title">AI降低本地化成本</div><div class="card-desc">多语言AI Agent，快速适配各地市场</div></div>
+    </div>
+  </div>
+
+  <!-- 合作方案 -->
+  <div class="section" id="sec-coop">
+    <div class="section-header">
+      <h2>三种合作方案</h2>
+      <p class="tagline">灵活选择，从轻量试水到深度绑定，总有一款适合</p>
+    </div>
+    <div class="content-block">
+      我们设计了三种合作方案，对应不同的合作深度和风险偏好。<strong style="color:var(--accent)">三种方案可以单选，也可以组合</strong>。建议先从方案A或C起步，跑通模式后再考虑方案B的战略投资。<br><br>
+      核心原则：双方优势互补而非竞争——九方的强项是流量获取和用户运营，德湃的强项是专业工具和深度教育。易知股道解决「选什么」，德湃解决「怎么执行」，这是天然的上下游关系。
+    </div>
+    <div class="coop-grid">
+      <div class="coop-card">
+        <div class="coop-label">方案 A</div>
+        <div class="coop-icon">🔗</div>
+        <div class="coop-title">软件嵌入 + 分成</div>
+        <div class="coop-desc">轻量起步，快速验证市场</div>
+        <div class="coop-detail">
+          <div><span class="dk">模式</span><span class="dv">德湃订单流工具嵌入九方用户体系，九方帮推德湃软件</span></div>
+          <div><span class="dk">分成</span><span class="dv">按软件销售额比例分成，具体比例可协商</span></div>
+          <div><span class="dk">目标</span><span class="dv">激活九方老用户复购 + 吸引新用户增量</span></div>
+          <div><span class="dk">周期</span><span class="dv">技术对接约2-4周，可快速上线验证</span></div>
+        </div>
+      </div>
+      <div class="coop-card">
+        <div class="coop-label">方案 B</div>
+        <div class="coop-icon">💎</div>
+        <div class="coop-title">战略投资</div>
+        <div class="coop-desc">深度绑定，共建AI交易Agent</div>
+        <div class="coop-detail">
+          <div><span class="dk">模式</span><span class="dv">九方智投以股权方式入股德湃</span></div>
+          <div><span class="dk">核心资产</span><span class="dv">高频数据 + 特征因子工程 + AI Agent路线图</span></div>
+          <div><span class="dk">AI定位</span><span class="dv">教学型，融合订单流、均线、波浪等多流派理论</span></div>
+          <div><span class="dk">适合</span><span class="dv">看好订单流+AI赛道，希望深度参与技术演进</span></div>
+        </div>
+      </div>
+      <div class="coop-card">
+        <div class="coop-label">方案 C</div>
+        <div class="coop-icon">🎓</div>
+        <div class="coop-title">课程合作 + 分成</div>
+        <div class="coop-desc">教育变现，私域深度运营</div>
+        <div class="coop-detail">
+          <div><span class="dk">模式</span><span class="dv">德榕正源持证讲师专讲德湃软件内容</span></div>
+          <div><span class="dk">分成</span><span class="dv">课程收入双方按比例分成</span></div>
+          <div><span class="dk">合规</span><span class="dv">德榕正源正规资质，讲师全部持证上岗</span></div>
+          <div><span class="dk">适合</span><span class="dv">九方希望丰富投教品类，提升私域变现能力</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心优势 -->
+  <div class="section" id="sec-advantages">
+    <div class="section-header">
+      <h2>德湃的核心优势</h2>
+      <p class="tagline">不是什么都做，而是把订单流这一件事做到极致</p>
+    </div>
+    <div class="content-block">
+      德湃的护城河不是靠融资堆出来的，而是靠时间和专注积累出来的。<br><br>
+      <strong style="color:var(--accent)">中文原生</strong>——市面上的订单流工具要么全英文，要么汉化粗糙，德湃是唯一从底层为中文用户设计的产品。<strong style="color:var(--accent2)">投教+工具双飞轮</strong>——卖软件的不教方法论，做教育的没有自己的工具，德湃两者兼备，用户LTV远超单一模式。<strong style="color:var(--accent3)">数据壁垒</strong>——多年高频数据积累，特征因子工程已完成，这是训练AI交易Agent的核心燃料。
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="icon">🇨🇳</div><div class="card-title">中文原生设计</div><div class="card-desc">从底层为中国用户打造，不是粗糙汉化</div></div>
+      <div class="card"><div class="icon">🔄</div><div class="card-title">投教+工具双飞轮</div><div class="card-desc">工具带教育，教育促工具，LTV行业领先</div></div>
+      <div class="card"><div class="icon">🛡️</div><div class="card-title">香港9号牌照</div><div class="card-desc">出海合规基础，不是纸上谈兵</div></div>
+      <div class="card"><div class="icon">⚡</div><div class="card-title">AI原生团队</div><div class="card-desc">16人全员AI协同，人效比行业3-5倍</div></div>
+      <div class="card"><div class="icon">📦</div><div class="card-title">高频数据壁垒</div><div class="card-desc">多年积累，特征因子工程完成，AI训练燃料充足</div></div>
+    </div>
+  </div>
+
+  <!-- 我们的需求 -->
+  <div class="section" id="sec-needs">
+    <div class="section-header">
+      <h2>我们的需求</h2>
+      <p class="tagline">德湃有技术有牌照，缺的是流量和市场验证速度</p>
+    </div>
+    <div class="content-block">
+      坦诚地说，德湃目前最大的瓶颈是流量获取成本。我们的产品经过打磨，用户一旦上手，留存和续费都不错。但获客成本高、速度慢，这是小团队的天然劣势。<br><br>
+      九方智投的6300万粉丝矩阵，正是我们最需要的资源。<strong style="color:var(--accent)">我们不是来要资源的，而是来交换价值的</strong>——德湃的技术和牌照，换九方的流量和市场经验，这是一笔双赢的交易。
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="icon">📢</div><div class="card-title">流量渠道支持</div><div class="card-desc">借助九方994个社媒账号，快速触达目标用户</div></div>
+      <div class="card"><div class="icon">🤝</div><div class="card-title">合作形式可协商</div><div class="card-desc">三种方案灵活选择或组合，找到最舒服的模式</div></div>
+      <div class="card"><div class="icon">🌍</div><div class="card-title">出海市场资源</div><div class="card-desc">东南亚华人市场的渠道、合作伙伴、本地经验</div></div>
+      <div class="card"><div class="icon">🏆</div><div class="card-title">联合品牌背书</div><div class="card-desc">九方28年口碑+港股上市，提升德湃市场信任度</div></div>
+      <div class="card"><div class="icon">🔁</div><div class="card-title">用户反馈闭环</div><div class="card-desc">借助九方用户基数，快速迭代产品，验证市场需求</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><span>德湃 Deltapex × 九方智投</span> · 2026 · 强强联合，共赢出海</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('sec-' + btn.dataset.sec).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
