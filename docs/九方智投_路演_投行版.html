@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>德湃 × 九方智投 — 战略合作路演</title>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #F8F9FA;
+      color: #1A1A2E;
+      line-height: 1.75;
+    }
+
+    /* ─── A4 Page Container ─── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ─── Cover Page ─── */
+    .cover {
+      background: linear-gradient(160deg, #003366 0%, #0055A5 60%, #0077CC 100%);
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      position: relative;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: rgba(255,255,255,0.04);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #C9A84C 0%, rgba(201,168,76,0.2) 100%);
+    }
+    .cover-top {
+      padding: 48px 56px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .cover-logo {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .cover-confidential {
+      font-size: 11px;
+      color: #C9A84C;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border: 1px solid #C9A84C;
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+    .cover-main {
+      padding: 0 56px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cover-eyebrow {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .cover-title {
+      font-size: 38px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .cover-title span {
+      color: #C9A84C;
+    }
+    .cover-subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+    .cover-divider {
+      width: 56px;
+      height: 3px;
+      background: #C9A84C;
+      margin-bottom: 32px;
+    }
+    .cover-tagline {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .cover-bottom {
+      padding: 0 56px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .cover-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.8;
+    }
+    .cover-meta strong {
+      color: rgba(255,255,255,0.7);
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+    .cover-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .badge-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 1px;
+    }
+
+    /* ─── Content Page ─── */
+    .content-page {
+      min-height: 297mm;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Page Header ─── */
+    .page-header {
+      background: #ffffff;
+      border-bottom: 2px solid #003366;
+      padding: 16px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-left {
+      font-size: 11px;
+      color: #003366;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .header-right {
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    /* ─── Page Footer ─── */
+    .page-footer {
+      border-top: 1px solid #E0E7EF;
+      padding: 12px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    .footer-left {
+      font-size: 10px;
+      color: #999;
+      letter-spacing: 1px;
+    }
+    .footer-right {
+      font-size: 10px;
+      color: #003366;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    /* ─── Content Body ─── */
+    .content-body {
+      padding: 40px 56px 32px;
+      flex: 1;
+    }
+
+    /* ─── Chapter Header ─── */
+    .chapter-header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E0E7EF;
+    }
+    .chapter-number {
+      font-size: 11px;
+      color: #0066CC;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .chapter-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #003366;
+      line-height: 1.3;
+      border-left: 5px solid #003366;
+      padding-left: 16px;
+      margin-left: -21px;
+    }
+
+    /* ─── Callout Box ─── */
+    .callout {
+      background: #EBF4FF;
+      border-left: 4px solid #0066CC;
+      border-radius: 0 6px 6px 0;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .callout-label {
+      font-size: 10px;
+      color: #0066CC;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .callout p {
+      font-size: 14.5px;
+      color: #003366;
+      line-height: 1.75;
+      font-weight: 500;
+    }
+
+    /* ─── Body Text ─── */
+    .body-text {
+      font-size: 14px;
+      color: #2C3E50;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* ─── Section ─── */
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: #0066CC;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Bullet List ─── */
+    .bullet-list {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+    }
+    .bullet-list li {
+      font-size: 14px;
+      color: #2C3E50;
+      line-height: 1.8;
+      padding: 7px 0 7px 28px;
+      position: relative;
+      border-bottom: 1px solid #F0F4F8;
+    }
+    .bullet-list li:last-child {
+      border-bottom: none;
+    }
+    .bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15px;
+      width: 10px;
+      height: 10px;
+      background: #003366;
+      border-radius: 1px;
+    }
+
+    /* ─── Highlight Numbers ─── */
+    .key-numbers {
+      display: flex;
+      gap: 16px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .kn-box {
+      flex: 1;
+      min-width: 120px;
+      background: linear-gradient(135deg, #003366 0%, #0055A5 100%);
+      border-radius: 6px;
+      padding: 20px 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .kn-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: #C9A84C;
+    }
+    .kn-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #C9A84C;
+      line-height: 1.1;
+      display: block;
+    }
+    .kn-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+
+    /* ─── Cooperation Box ─── */
+    .coop-box {
+      background: #F8F9FA;
+      border: 1px solid #E0E7EF;
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .coop-box-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .coop-label {
+      background: #003366;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .coop-tag {
+      background: #C9A84C;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .coop-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #003366;
+    }
+    .coop-body {
+      font-size: 13.5px;
+      color: #4A5568;
+      line-height: 1.8;
+    }
+
+    /* ─── Table of Contents ─── */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #E0E7EF;
+      gap: 16px;
+    }
+    .toc-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: #C9A84C;
+      width: 28px;
+      flex-shrink: 0;
+    }
+    .toc-text {
+      flex: 1;
+      font-size: 14px;
+      color: #003366;
+      font-weight: 600;
+    }
+    .toc-sub {
+      font-size: 12px;
+      color: #718096;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .toc-dots {
+      flex: 1;
+      border-bottom: 1px dotted #CBD5E0;
+      margin: 0 8px;
+    }
+    .toc-page {
+      font-size: 12px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    /* ─── Print Media ─── */
+    @media print {
+      body { background: white; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        width: 210mm;
+        min-height: 297mm;
+      }
+      .page:last-child { page-break-after: avoid; }
+      .page-header, .page-footer { position: fixed; }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media screen and (max-width: 768px) {
+      .page { width: 100%; }
+      .cover-title { font-size: 26px; }
+      .chapter-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 0 · COVER                                -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="cover-logo">DELTAPEX &amp; JIUFANG ZHITOU</div>
+      <div class="cover-confidential">CONFIDENTIAL</div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-eyebrow">Strategic Partnership Roadshow · 2026</div>
+      <div class="cover-title">
+        德湃 × 九方智投<br>
+        <span>订单流赛道</span>的唯一正确入口
+      </div>
+      <div class="cover-subtitle">打通中国金融用户认知升级的最后一公里</div>
+      <div class="cover-divider"></div>
+      <div class="cover-tagline">
+        "九年空白，一张9号牌照，16人AI原生团队——<br>
+        现在，是闭合这个缺口的时候了。"
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-meta">
+        <strong>文件级别</strong>
+        CONFIDENTIAL · 仅供指定接收方阅览<br>
+        <strong>日期</strong>
+        2026年3月
+      </div>
+      <div class="cover-badge">
+        <div class="badge-item">SFC 第9号牌照</div>
+        <div class="badge-item">ATAS 大中华区独家运营</div>
+        <div class="badge-item">A4 · 可打印版</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 1 · TABLE OF CONTENTS                   -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">目录</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CONTENTS</div>
+        <div class="chapter-title">文件目录</div>
+      </div>
+
+      <ul class="toc-list">
+        <li class="toc-item">
+          <span class="toc-num">01</span>
+          <div class="toc-text">
+            市场时机
+            <div class="toc-sub">一批新玩家正在涌入，他们需要更好的工具</div>
+          </div>
+        </li>
+        <li class="toc-item">
+          <span class="toc-num">02</span>
+          <div class="toc-text">
+            市场空白
+            <div class="toc-sub">九年，没有一家中国企业做成这件事</div>
+          </div>
+        </li>
+        <li class="toc-item">
+          <span class="toc-num">03</span>
+          <div class="toc-text">
+            德湃是谁
+            <div class="toc-sub">产品、资质、护城河</div>
+          </div>
+        </li>
+        <li class="toc-item">
+          <span class="toc-num">04</span>
+          <div class="toc-text">
+            为什么是现在
+            <div class="toc-sub">窗口期不等人</div>
+          </div>
+        </li>
+        <li class="toc-item">
+          <span class="toc-num">05</span>
+          <div class="toc-text">
+            为什么是九方智投
+            <div class="toc-sub">解开唯一的锁</div>
+          </div>
+        </li>
+        <li class="toc-item">
+          <span class="toc-num">06</span>
+          <div class="toc-text">
+            合作方案
+            <div class="toc-sub">三条路径，灵活组合</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="callout" style="margin-top:40px;">
+        <div class="callout-label">Executive Summary</div>
+        <p>德湃持有香港SFC第9号牌照，ATAS大中华区独家运营权，以及核心专利保护。九方智投拥有994个账号、6300万粉丝的合规金融流量基础设施。双方结合，可打通中国订单流市场从"工具供给"到"精准分发"的完整链路——这是任何一方单独无法完成的事。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">1 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 2 · CHAPTER 01                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第一章 · 市场时机</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 01</div>
+        <div class="chapter-title">市场时机：一批新玩家正在涌入，他们需要更好的工具</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>AI 冲击正在向金融市场输送一批高质量"转行交易者"。他们不听消息、愿意付费、乐于传播——是订单流工具最理想的早期用户群体。需求真实存在，竞争格局尚未固化，先手窗口正在打开。</p>
+      </div>
+
+      <p class="body-text">
+        AI 正在重塑全球就业结构。每一轮技术冲击都会把大量各行业从业者推向金融交易市场——这不是预测，而是正在发生的事实。2023年以来，国内期货和港美股开户数持续攀升，增量用户的画像已经变了：他们不是传统散户，而是有技术背景、愿意研究底层逻辑、愿意为认知付费的"转行交易者"。
+      </p>
+
+      <div class="section">
+        <div class="section-title">新用户群体的三个核心特征</div>
+        <ul class="bullet-list">
+          <li>不满足于"听消息、跟老师"，他们要自己看懂市场，诉诸数据和逻辑</li>
+          <li>愿意为真正有效的工具和方法论买单，<strong>客单价天花板远高于传统投教用户</strong></li>
+          <li>活跃在社交媒体上，一旦验证了某个方法有效，会自发成为传播节点——天然的 KOL 裂变池</li>
+        </ul>
+      </div>
+
+      <p class="body-text">
+        与此同时，存量投资者也在成熟化。五年前，大多数散户看不懂 K 线；今天，K 线已经是基本功。市场的认知水位整体上升了一个台阶，但下一个台阶——如何从盘口微观结构中找到更有逻辑的买卖点——至今没有一款工具能帮他们迈上去。
+      </p>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C;">
+        <div class="callout-label" style="color: #8B6914;">Strategic Window</div>
+        <p style="color: #4A3000;">需求真实存在，用户正在成熟，竞争格局尚未固化。这个窗口不会永远敞开。先建立工具生态和用户心智的一方，将定义整个赛道的规则。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">2 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 3 · CHAPTER 02                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第二章 · 市场空白</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 02</div>
+        <div class="chapter-title">市场空白：九年，没有一家中国企业做成这件事</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>订单流分析概念进入中国已整整九年。期间，没有任何一家本土企业从零打造出一款真正可用的中文订单流软件。数据合规壁垒、语言鸿沟、定价策略失配——三重卡点共同形成了一个持续至今的结构性空白。</p>
+      </div>
+
+      <div class="key-numbers">
+        <div class="kn-box">
+          <span class="kn-number">9年</span>
+          <span class="kn-label">订单流进入中国市场<br>至今的时间跨度</span>
+        </div>
+        <div class="kn-box">
+          <span class="kn-number">0家</span>
+          <span class="kn-label">本土企业从零打造<br>可用中文订单流软件</span>
+        </div>
+        <div class="kn-box">
+          <span class="kn-number">3重</span>
+          <span class="kn-label">卡点：数据合规<br>语言壁垒·定价失配</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">三道进入壁垒，共同造就结构性空白</div>
+        <ul class="bullet-list">
+          <li><strong>数据合规壁垒：</strong>国内交易所 Level 2 数据有严格的分发和使用规范，海外软件商既没有合规资质，也没有动力去解决</li>
+          <li><strong>语言与使用习惯鸿沟：</strong>订单流本身就是认知门槛较高的工具，英文界面加上缺乏本地化教学，劝退了99%的潜在用户</li>
+          <li><strong>定价策略失配：</strong>海外软件动辄数百美元月费，完全不符合亚洲市场的付费习惯</li>
+        </ul>
+      </div>
+
+      <p class="body-text">
+        散户交易者有一个朴素而强烈的信念："跟着主力大单走。"他们需要一个工具来直接看到大单在哪里、资金往哪里流。主机图（Footprint Chart）和热图（Heatmap）恰恰就是这个答案。
+      </p>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C;">
+        <div class="callout-label" style="color: #8B6914;">Structural Opportunity</div>
+        <p style="color: #4A3000;">九年来，需求一直在，供给一直缺。这不是一个被其他产品间接满足的需求——这是一个真实的、未被填补的市场空白，等待第一家具备完整能力的本土企业来定义。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">3 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 4 · CHAPTER 03                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第三章 · 德湃是谁</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 03</div>
+        <div class="chapter-title">德湃是谁：产品、资质、护城河</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>德湃不是一家"有想法但还在画饼"的初创公司。我们已经在订单流赛道上构建了多层壁垒：ATAS独家运营权、SFC第9号牌照、核心专利、AI原生团队，以及已验证的市场信号。</p>
+      </div>
+
+      <div class="key-numbers">
+        <div class="kn-box">
+          <span class="kn-number">9号</span>
+          <span class="kn-label">香港SFC牌照<br>资产管理合规资质</span>
+        </div>
+        <div class="kn-box">
+          <span class="kn-number">16人</span>
+          <span class="kn-label">AI原生团队<br>人效达行业均值3-5倍</span>
+        </div>
+        <div class="kn-box">
+          <span class="kn-number">2项</span>
+          <span class="kn-label">核心中国市场<br>应用专利已注册</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">多层护城河体系</div>
+        <ul class="bullet-list">
+          <li><strong>产品层：</strong>ATAS 大中华区独家运营权——在大中华区，任何人想合规使用 ATAS，都必须通过德湃</li>
+          <li><strong>合规层：</strong>香港SFC第9号牌照 + 德榕正源正规培训资质，所有讲师持证上岗，金融投教行业稀缺合规底牌</li>
+          <li><strong>知识产权层：</strong>主机图（Footprint Chart）和热图（Heatmap）的中国市场应用专利已完成注册，竞品难以绕过</li>
+          <li><strong>团队层：</strong>16人 AI 原生团队，人效比达行业平均的3至5倍，靠工具和流程效率取胜</li>
+          <li><strong>商业模式：</strong>工具+教育双飞轮——买软件送课程，买课程用软件，LTV远超单一模式，续费粘性极强</li>
+        </ul>
+      </div>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C;">
+        <div class="callout-label" style="color: #8B6914;">Validated Signal</div>
+        <p style="color: #4A3000;">合作KOL江东商主从传统裸K交易转用订单流工具后，交易业绩直接翻倍——真实交易记录验证，不是营销话术。产品Demo演示转化率极高，用户第一反应几乎一致："这就是我一直在找的东西。"</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">4 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 5 · CHAPTER 04                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第四章 · 为什么是现在</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 04</div>
+        <div class="chapter-title">为什么是现在：窗口期不等人</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>订单流在中国市场的竞争格局，此刻处于一个极为罕见的真空状态。三道结构性壁垒（国内无规模化玩家、外资进不来、大厂不会做）共同为先手团队提供了一个时间有限的战略窗口。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">三道结构性壁垒，构成先手优势</div>
+        <ul class="bullet-list">
+          <li><strong>国内没有规模化玩家：</strong>数据合规门槛高 + 产品需要深度金融认知 + 教育链条长——三道坎叠在一起，九年内没有一家企业跑出来。第一个跑通"产品+教育+生态"闭环的团队，不是赢得市场份额，而是定义整个市场</li>
+          <li><strong>外资进不来：</strong>中国交易所数据的合规分发有明确的监管框架，海外订单流软件商既没有资质也没有意愿去适配——这道监管壁垒短期内不会消失</li>
+          <li><strong>大厂不会做：</strong>订单流是垂直到极致的专业工具品类，大厂的产品文化和组织架构决定了它们不会投入资源做"小而深"的金融工具——ROI模型算不过来</li>
+        </ul>
+      </div>
+
+      <p class="body-text">
+        TradingView 的成功路径值得参考：先用工具聚集专业用户，再用社区沉淀内容和关系，最后规模化变现。德湃现在正处于从"工具验证"迈向"社区生态"的关键拐点。
+      </p>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C;">
+        <div class="callout-label" style="color: #8B6914;">Timing Risk</div>
+        <p style="color: #4A3000;">这个窗口的时间有限。一旦市场被教育到一定程度，后来者可以用资本和流量优势快速复制。但此刻，概念尚未被大规模普及，先手优势的价值是最大的。现在行动，和等待六个月之后行动，差距是指数级的。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">5 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 6 · CHAPTER 05                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第五章 · 为什么是九方智投</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 05</div>
+        <div class="chapter-title">为什么是九方智投：解开唯一的锁</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>德湃有产品、有资质、有护城河，但有一个卡点靠自己无法突破：合规流量。九方拥有的是唯一的稀缺资源——994个账号、6300万粉丝、成熟的金融内容运营体系。这不是花钱能买到的基础设施。</p>
+      </div>
+
+      <div class="key-numbers">
+        <div class="kn-box">
+          <span class="kn-number">994</span>
+          <span class="kn-label">九方智投<br>合规账号矩阵</span>
+        </div>
+        <div class="kn-box">
+          <span class="kn-number">6300万</span>
+          <span class="kn-label">精准金融用户<br>覆盖粉丝量</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">天然互补，不存在竞争</div>
+        <ul class="bullet-list">
+          <li><strong>易知股道解决"选什么"：</strong>帮用户筛选标的、判断方向——这是九方的核心能力</li>
+          <li><strong>德湃解决"怎么执行"：</strong>在确定方向后，用订单流工具找到精确的入场点和出场点——这是天然的上下游关系</li>
+          <li><strong>九方用户的认知升级需求：</strong>从"用工具分析"到"订单流微观结构"的升级路径，德湃恰好是那个"下一步"</li>
+        </ul>
+      </div>
+
+      <p class="body-text">
+        金融软件类内容在国内社交媒体上是高危品类。没有金融资质的自媒体账号，涉及行情分析、交易工具推荐的内容，发几条就会被限流甚至封号。德湃的产品再好，如果不能通过合规渠道持续触达目标用户，增长就有天花板。
+      </p>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C;">
+        <div class="callout-label" style="color: #8B6914;">Partnership Logic</div>
+        <p style="color: #4A3000;"><strong>九方解开德湃的流量锁，德湃丰富九方的产品纵深。</strong>各取所需，各补所短。这不是一个谁帮谁的关系，而是两块拼图找到了彼此——合并之后，才能形成完整的竞争力。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">6 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 7 · CHAPTER 06                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="content-page">
+    <div class="page-header">
+      <div class="header-left">第六章 · 合作方案</div>
+      <div class="header-right">德湃 × 九方智投 战略合作路演</div>
+    </div>
+
+    <div class="content-body">
+      <div class="chapter-header">
+        <div class="chapter-number">CHAPTER 06</div>
+        <div class="chapter-title">合作方案：三条路径，灵活组合</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Key Insight</div>
+        <p>三种合作模式，底层逻辑一致：把德湃的产品能力和九方的渠道能力对接起来，创造双方单独无法实现的增量价值。建议从方案A起步快速验证，根据数据表现逐步叠加B和C。</p>
+      </div>
+
+      <div class="coop-box">
+        <div class="coop-box-header">
+          <span class="coop-label">方案 A</span>
+          <span class="coop-tag">推荐起步</span>
+          <span class="coop-title">软件嵌入 + 销售分成</span>
+        </div>
+        <div class="coop-body">
+          将德湃订单流工具以模块化形式嵌入九方用户体系。九方通过自有合规渠道推广分发，双方按软件销售额比例分成。技术对接周期预计2至4周，不需要大规模系统改造。<strong>核心优势：启动快、风险低、可量化</strong>——上线即可看到转化数据，用真实销售结果验证合作价值。
+        </div>
+      </div>
+
+      <div class="coop-box">
+        <div class="coop-box-header">
+          <span class="coop-label">方案 B</span>
+          <span class="coop-title">战略投资 + 联合研发</span>
+        </div>
+        <div class="coop-body">
+          九方以股权方式入股德湃，双方在资本层面绑定。联合研发 AI 交易 Agent——定位为教学辅助型智能助手，帮助用户理解订单流信号、学习交易逻辑。德湃在订单流领域积累的高频数据和特征因子工程能力，是训练这类 AI Agent 的核心燃料。这条路径指向的是下一代智能投顾赛道，市场空间远大于工具软件本身。
+        </div>
+      </div>
+
+      <div class="coop-box">
+        <div class="coop-box-header">
+          <span class="coop-label">方案 C</span>
+          <span class="coop-title">课程合作 + 收入分成</span>
+        </div>
+        <div class="coop-body">
+          由德榕正源的持证讲师为九方用户体系专门制作订单流教学内容。课程通过九方渠道分发，引流至私域完成转化，收入按约定比例分成。九方借此丰富投教内容品类（进阶工具类课程空白区间）；德湃获得持续、合规的精准流量入口。
+        </div>
+      </div>
+
+      <div class="callout" style="background: #FFF9EC; border-left-color: #C9A84C; margin-top: 8px;">
+        <div class="callout-label" style="color: #8B6914;">Recommended Approach</div>
+        <p style="color: #4A3000;">从方案A起步快速验证，根据数据表现逐步叠加B和C，形成从<strong>工具→资本→内容</strong>的全面绑定。每一步都可量化，每一步都是下一步的基础。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-left">CONFIDENTIAL · 仅供指定接收方阅览</div>
+      <div class="footer-right">7 · CONFIDENTIAL · 2026</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
